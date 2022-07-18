@@ -1,0 +1,27 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://repo.spring.io/release' }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'RabbitMq-Microservices'
+include 'TotalZus'
+include 'PensionZus'
+include 'SicknessZus'
+include 'DisabilityZus'
+include 'Health'
+include 'Api-gateway'
+include 'Discovery-server'
+include 'Tax'
+include 'AnnualGross'
+include 'AnnualGross'
+include 'MonthlyNet'
+include 'AnnualNet'
+include 'MonthlyGross'
+include 'SalaryCalculator-orchestrator'
+include 'SpringAdmin-server'
+
+
+

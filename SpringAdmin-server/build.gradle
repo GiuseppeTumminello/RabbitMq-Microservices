@@ -1,0 +1,16 @@
+ext {
+    set('springBootAdminVersion', "2.7.1")
+
+}
+
+dependencies {
+    implementation 'de.codecentric:spring-boot-admin-starter-server'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
+    }
+}
