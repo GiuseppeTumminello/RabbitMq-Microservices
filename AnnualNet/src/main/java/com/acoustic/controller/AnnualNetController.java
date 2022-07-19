@@ -36,7 +36,7 @@ public class AnnualNetController {
     @PostMapping("/calculation/{grossMonthlySalary}")
     public ResponseEntity<Map<String, String>> calculateAnnualNet(@PathVariable @Min(MINIMUM_GROSS)BigDecimal grossMonthlySalary){
         var annualNet = this.salaryCalculatorService.apply(grossMonthlySalary);
-        var annualNetData = this.annualNetRepository.saveAndFlush(AnnualNet.builder().description(this.salaryCalculatorService.getDescription()).value(String.valueOf(annualNet)).build());
+        var annualNetData = this.annualNetRepository.saveAndFlush(AnnualNet.builder().description(this.salaryCalculatorService.getDescription()).amount(String.valueOf(annualNet)).build());
         this.salaryCalculatorService.sendHealth(annualNetData);
         log.info(annualNetData.toString());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(DESCRIPTION,this.salaryCalculatorService.getDescription(), VALUE, String.valueOf(annualNet)));

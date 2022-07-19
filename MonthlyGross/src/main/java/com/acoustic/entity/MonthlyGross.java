@@ -21,7 +21,7 @@ public class MonthlyGross {
     private int id;
 
     private String description;
-    private String value;
+    private String amount;
 
 
 

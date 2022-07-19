@@ -2,9 +2,9 @@ package com.acoustic.controller;
 
 
 import com.acoustic.enpoints.MicroservicesEndpoints;
-import com.acoustic.model.Data;
 import com.acoustic.entity.SalaryCalculatorOrchestratorData;
 import com.acoustic.jobcategories.JobCategoriesConfigurationProperties;
+import com.acoustic.model.Data;
 import com.acoustic.repository.DataSalaryCalculatorRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/salary-calculations")
@@ -35,7 +37,7 @@ public class SalaryCalculatorOrchestratorController implements RabbitListenerCon
     private final JobCategoriesConfigurationProperties jobCategoriesConfigurationProperties;
     private final RestTemplate restTemplate;
     private final DataSalaryCalculatorRepository dataSalaryCalculatorRepository;
-
+    private final Map<String, BigDecimal> response;
 
 
     @Override
@@ -45,7 +47,8 @@ public class SalaryCalculatorOrchestratorController implements RabbitListenerCon
 
     @RabbitListener(queues = "${rabbitmq.queue}")
     public void receivedMessage(Data data) {
-        log.warn(data.toString());
+        this.response.put(data.getDescription(), BigDecimal.valueOf(Double.parseDouble(data.getAmount())));
+        log.warn(this.response.toString());
 
     }
 
@@ -64,9 +67,10 @@ public class SalaryCalculatorOrchestratorController implements RabbitListenerCon
 
     @PostMapping("/calculations/{grossMonthlySalary}")
     public Map<String, BigDecimal> calculateSalary(@PathVariable @Min(value = MINIMUM_GROSS, message = "Must be Greater than or equal to 2000.00") @NotNull BigDecimal grossMonthlySalary, @RequestParam(required = false) String departmentName, @RequestParam(required = false) Integer jobTitleId) {
-        var response = getCalculationFromMicroservices(grossMonthlySalary);
+        response.clear();
+        getCalculationFromMicroservices(grossMonthlySalary);
         if (departmentName == null || jobTitleId == null) {
-            return response;
+            return this.response;
         }
         List<String> jobTitlesList = this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().get(departmentName);
         if (!this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().containsKey(departmentName.toLowerCase())) {
@@ -77,17 +81,16 @@ public class SalaryCalculatorOrchestratorController implements RabbitListenerCon
             throw new IllegalArgumentException("Wrong job id");
         }
 
-        return getAverage(grossMonthlySalary, jobTitlesList.get(jobTitleId - 1), response);
+        return getAverage(grossMonthlySalary, jobTitlesList.get(jobTitleId - 1), this.response);
     }
 
 
-    private Map<String, BigDecimal> getCalculationFromMicroservices(BigDecimal grossMonthlySalary) {
-        Map<String, BigDecimal> response = new LinkedHashMap<>();
+    private void getCalculationFromMicroservices(BigDecimal grossMonthlySalary) {
         for (var endpoint : this.microservicesEndpoints.getEndpoints()) {
-            var responseFromEndpoints = this.restTemplate.postForEntity(endpoint + grossMonthlySalary, HttpMethod.POST, Data.class);
-            response.put(Objects.requireNonNull(responseFromEndpoints.getBody()).getDescription(), responseFromEndpoints.getBody().getValue());
+            this.restTemplate.postForEntity(endpoint + grossMonthlySalary, HttpMethod.POST, Data.class);
         }
-        return response;
+
+
     }
 
 

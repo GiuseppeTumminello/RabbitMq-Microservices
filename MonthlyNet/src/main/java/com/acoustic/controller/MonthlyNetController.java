@@ -32,7 +32,7 @@ public class MonthlyNetController {
     @PostMapping("/calculation/{grossMonthlySalary}")
     public ResponseEntity<Map<String, String>> calculateMonthlyNet(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
         var monthlyNetSalary = this.salaryCalculatorService.apply(grossMonthlySalary);
-        var monthlyNetData = this.monthlyNetRepository.saveAndFlush(MonthlyNet.builder().description(this.salaryCalculatorService.getDescription()).value(String.valueOf(monthlyNetSalary)).build());
+        var monthlyNetData = this.monthlyNetRepository.saveAndFlush(MonthlyNet.builder().description(this.salaryCalculatorService.getDescription()).amount(String.valueOf(monthlyNetSalary)).build());
         this.salaryCalculatorService.sendMonthlyNet(monthlyNetData);
         log.warn(monthlyNetData.toString());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(DESCRIPTION,this.salaryCalculatorService.getDescription(), VALUE, String.valueOf(monthlyNetSalary)));

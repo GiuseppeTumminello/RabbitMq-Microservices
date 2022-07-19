@@ -22,7 +22,7 @@ public class AnnualNet {
 
     private String description;
 
-    private String value;
+    private String amount;
 
 
 

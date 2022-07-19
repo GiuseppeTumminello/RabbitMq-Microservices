@@ -22,6 +22,6 @@ public class Health {
 
     private String description;
 
-    private String value;
+    private String amount;
 
 }

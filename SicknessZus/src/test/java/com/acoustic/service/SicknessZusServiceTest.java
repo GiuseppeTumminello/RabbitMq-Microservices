@@ -20,7 +20,7 @@ class SicknessZusServiceTest {
 
     public static final String SICKNESS_ZUS_DESCRIPTION = "Sickness zus";
     @InjectMocks
-    private PensionZusService salaryCalculatorService;
+    private SicknessZusService salaryCalculatorService;
 
     @Mock
     private RatesConfigurationProperties ratesConfigurationProperties;

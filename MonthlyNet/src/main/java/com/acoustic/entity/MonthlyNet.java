@@ -21,6 +21,6 @@ public class MonthlyNet {
     private int id;
 
     private String description;
-    private String value;
+    private String amount;
 
 }

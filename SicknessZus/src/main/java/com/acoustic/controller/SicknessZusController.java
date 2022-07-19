@@ -5,6 +5,9 @@ import com.acoustic.entity.SicknessZus;
 import com.acoustic.repository.SicknessZusRepository;
 import com.acoustic.service.SalaryCalculatorService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +21,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Validated
 @CrossOrigin
+@Slf4j
 public class SicknessZusController {
 
     private static final String DESCRIPTION = "description";
@@ -30,9 +34,12 @@ public class SicknessZusController {
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public Map<String, String> calculateSicknessZus(@PathVariable @Min(MINIMUM_GROSS)BigDecimal grossMonthlySalary){
+    public ResponseEntity<Map<String, String>>calculateSicknessZus(@PathVariable @Min(MINIMUM_GROSS)BigDecimal grossMonthlySalary){
         var sicknessZus = this.salaryCalculatorService.apply(grossMonthlySalary);
-        this.sicknessZusRepository.save(SicknessZus.builder().sicknessZusAmount(sicknessZus).build());
-        return  Map.of(DESCRIPTION,this.salaryCalculatorService.getDescription(), VALUE, String.valueOf(sicknessZus));
+        var sicknessZusData = this.sicknessZusRepository.saveAndFlush(SicknessZus.builder().description(this.salaryCalculatorService.getDescription()).amount(String.valueOf(sicknessZus)).build());
+        this.salaryCalculatorService.sendSicknessZus(sicknessZusData);
+        log.warn(sicknessZusData.toString());
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of(DESCRIPTION, this.salaryCalculatorService.getDescription(), VALUE, String.valueOf(sicknessZus)));
+
     }
 }

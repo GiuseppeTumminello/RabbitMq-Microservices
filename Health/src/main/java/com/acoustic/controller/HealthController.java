@@ -31,7 +31,7 @@ public class HealthController {
     @PostMapping("/calculation/{grossMonthlySalary}")
     public ResponseEntity<Map<String, String>> calculateHealth(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
         var health = this.salaryCalculatorService.apply(grossMonthlySalary);
-        var healthData = this.healthRepository.saveAndFlush(Health.builder().description(this.salaryCalculatorService.getDescription()).value(String.valueOf(health)).build());
+        var healthData = this.healthRepository.saveAndFlush(Health.builder().description(this.salaryCalculatorService.getDescription()).amount(String.valueOf(health)).build());
         this.salaryCalculatorService.sendAnnualNet(healthData);
         log.warn(healthData.toString());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(DESCRIPTION,this.salaryCalculatorService.getDescription(), VALUE, String.valueOf(health)));

@@ -34,7 +34,7 @@ public class DisabilityZusController {
     @PostMapping("/calculation/{grossMonthlySalary}")
     public ResponseEntity<Map<String, String>> calculateDisabilityZus(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
         var disabilityZus = salaryCalculatorService.apply(grossMonthlySalary);
-        var disabilityZusData = this.disabilityZusRepository.saveAndFlush(DisabilityZus.builder().description(this.salaryCalculatorService.getDescription()).value(String.valueOf(disabilityZus)).build());
+        var disabilityZusData = this.disabilityZusRepository.saveAndFlush(DisabilityZus.builder().description(this.salaryCalculatorService.getDescription()).amount(String.valueOf(disabilityZus)).build());
         this.salaryCalculatorService.sendDisabilityZus(disabilityZusData);
         log.info(disabilityZusData.toString());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(DESCRIPTION,this.salaryCalculatorService.getDescription(), VALUE, String.valueOf(disabilityZus)));

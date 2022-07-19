@@ -5,6 +5,9 @@ import com.acoustic.entity.PensionZus;
 import com.acoustic.repository.PensionZusRepository;
 import com.acoustic.service.SalaryCalculatorService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +21,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Validated
 @CrossOrigin
+@Slf4j
 public class PensionZusController {
 
     public static final String DESCRIPTION = "description";
@@ -28,9 +32,13 @@ public class PensionZusController {
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public Map<String, String> calculatePensionZus(@PathVariable @Min(MINIMUM_SALARY) BigDecimal grossMonthlySalary) {
+    public ResponseEntity<Map<String, String>>
+
+    calculatePensionZus(@PathVariable @Min(MINIMUM_SALARY) BigDecimal grossMonthlySalary) {
         var pensionZus = this.salaryCalculatorService.apply(grossMonthlySalary);
-        this.pensionZusRepository.save(PensionZus.builder().pensionZusAmount(pensionZus).build());
-        return Map.of(DESCRIPTION, this.salaryCalculatorService.getDescription(), VALUE, String.valueOf(pensionZus));
+        var pensionZusData = this.pensionZusRepository.saveAndFlush(PensionZus.builder().description(this.salaryCalculatorService.getDescription()).amount(String.valueOf(pensionZus)).build());
+        this.salaryCalculatorService.sendPensionZus(pensionZusData);
+        log.warn(pensionZusData.toString());
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of(DESCRIPTION, this.salaryCalculatorService.getDescription(), VALUE, String.valueOf(pensionZus)));
     }
 }
