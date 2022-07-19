@@ -22,7 +22,7 @@ class DisabilityZusServiceTest {
 
     public static final double DISABILITY_ZUS_RATE = 0.0150;
     @InjectMocks
-    private PensionZusService salaryCalculatorService;
+    private DisabilityZuzService salaryCalculatorService;
 
     @Mock
     private RatesConfigurationProperties ratesConfigurationProperties;

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
+import java.util.UUID;
 
 
 @Getter
@@ -21,6 +23,7 @@ public class Tax {
     private int id;
 
     private String description;
-    private String amount;
+    private BigDecimal amount;
+    private UUID uuid;
 
 }

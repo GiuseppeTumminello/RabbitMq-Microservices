@@ -17,4 +17,7 @@ public class RabbitMqSettings {
     private String routingKey;
     private String exchange;
     private boolean durable;
+    private String exchangeProducers;
+    private String routingKeyProducers;
+    private String queueProducers;
 }

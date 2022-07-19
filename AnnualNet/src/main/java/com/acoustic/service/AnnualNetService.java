@@ -59,7 +59,7 @@ public class AnnualNetService implements SalaryCalculatorService {
     }
 
     @Override
-    public void sendHealth(AnnualNet annualNet) {
+    public void sendAnnualNet(AnnualNet annualNet) {
         this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchange(), this.rabbitMqSettings.getRoutingKey(), annualNet);
     }
 

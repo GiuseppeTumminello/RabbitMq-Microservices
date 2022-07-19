@@ -16,4 +16,6 @@ public interface DataSalaryCalculatorRepository extends JpaRepository<SalaryCalc
     BigDecimal findAverageByJobTitle(@Param("jobTitle") String jobTitle);
 
 
+
+
 }
