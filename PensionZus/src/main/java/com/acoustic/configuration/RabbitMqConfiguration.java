@@ -17,22 +17,30 @@ public class RabbitMqConfiguration {
     private final RabbitMqSettings rabbitMqSettings;
 
     @Bean
-    public Queue queue() {
-        return new Queue(rabbitMqSettings.getQueueProducers(), true);
+    public Queue pensionZusQueue() {
+        return new Queue(rabbitMqSettings.getQueuePensionZus(), rabbitMqSettings.isDurable());
     }
 
     @Bean
-    public Exchange myExchange() {
-        return ExchangeBuilder.directExchange(rabbitMqSettings.getExchangeProducers()).durable(true).build();
+    public Queue salaryCalculatorOrchestratorQueue(){
+        return new Queue(rabbitMqSettings.getQueueSalaryCalculator(), rabbitMqSettings.isDurable());
     }
 
     @Bean
-    public Binding binding() {
+    public Exchange salaryCalculatorOrchestratorExchange() {
+        return ExchangeBuilder.directExchange(rabbitMqSettings.getExchangeSalaryCalculator()).durable(rabbitMqSettings.isDurable()).build();
+    }
+
+    @Bean
+    public FanoutExchange microservicesExchange() {
+        return ExchangeBuilder.fanoutExchange(rabbitMqSettings.getExchange()).durable(rabbitMqSettings.isDurable()).build();
+    }
+
+    @Bean
+    public Binding pensionZusBinding() {
         return BindingBuilder
-                .bind(queue())
-                .to(myExchange())
-                .with(rabbitMqSettings.getRoutingKeyProducers())
-                .noargs();
+                .bind(pensionZusQueue())
+                .to(microservicesExchange());
     }
 
 

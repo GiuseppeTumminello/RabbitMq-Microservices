@@ -52,12 +52,13 @@ public class AnnualNetController implements RabbitListenerConfigurer {
     }
 
     private void sendAnnualNetEndpointDataToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
-        var annualGrossSalary = calculateAnnualNet(grossMonthlySalary);
-        this.salaryCalculatorService.sendAnnualNet(AnnualNet.builder().description(this.salaryCalculatorService.getDescription()).amount(annualGrossSalary).uuid(uuid).build());
+        var annualNetSalary = calculateAnnualNet(grossMonthlySalary);
+        var annualNetData = saveAnnualNet(annualNetSalary, uuid);
+        this.salaryCalculatorService.sendAnnualNet(annualNetData);
     }
 
-    private void saveAnnualNet(BigDecimal annualNet, UUID uuid) {
-        this.annualNetRepository.saveAndFlush(AnnualNet.builder().description(this.salaryCalculatorService.getDescription()).amount(annualNet).uuid(uuid).build());
+    private AnnualNet saveAnnualNet(BigDecimal annualNet, UUID uuid) {
+        return this.annualNetRepository.saveAndFlush(AnnualNet.builder().description(this.salaryCalculatorService.getDescription()).amount(annualNet).uuid(uuid).build());
     }
 
     private BigDecimal calculateAnnualNet(BigDecimal grossMonthlySalary) {

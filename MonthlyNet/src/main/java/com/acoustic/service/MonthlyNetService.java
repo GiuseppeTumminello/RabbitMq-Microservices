@@ -36,7 +36,7 @@ public class MonthlyNetService implements SalaryCalculatorService {
 
     @Override
     public void sendMonthlyNet(MonthlyNet monthlyNet) {
-        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchange(), this.rabbitMqSettings.getRoutingKey(), monthlyNet);
+        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(), this.rabbitMqSettings.getRoutingKeySalaryCalculator(), monthlyNet);
     }
 
     private BigDecimal calculateTotalZus(BigDecimal grossMonthlySalary) {

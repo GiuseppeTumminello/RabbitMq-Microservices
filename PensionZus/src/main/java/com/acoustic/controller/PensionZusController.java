@@ -1,7 +1,6 @@
 package com.acoustic.controller;
 
 
-import com.acoustic.entity.DataProducer;
 import com.acoustic.entity.PensionZus;
 import com.acoustic.repository.PensionZusRepository;
 import com.acoustic.service.SalaryCalculatorService;
@@ -33,10 +32,10 @@ public class PensionZusController {
     private final SalaryCalculatorService salaryCalculatorService;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueProducers}")
-    public void receivedMessage(DataProducer dataProducer) {
-        log.warn(dataProducer.getUuid().toString());
-        sendPensionZusDataToReceiver(dataProducer.getAmount(), dataProducer.getUuid());
+    @RabbitListener(queues = "${rabbitmq.queuePensionZus}")
+    public void receivedMessage(PensionZus pensionZus) {
+        log.warn(pensionZus.getUuid().toString());
+        sendPensionZusDataToSalaryCalculatorOrchestrator(pensionZus.getAmount(), pensionZus.getUuid());
 
     }
 
@@ -48,7 +47,7 @@ public class PensionZusController {
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(pensionZus)));
     }
 
-    private void sendPensionZusDataToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
+    private void sendPensionZusDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var pensionZus = calculatePensionZusData(grossMonthlySalary);
         var pensionZusData = savePensionZus(pensionZus, uuid);
         this.salaryCalculatorService.sendPensionZus(pensionZusData);

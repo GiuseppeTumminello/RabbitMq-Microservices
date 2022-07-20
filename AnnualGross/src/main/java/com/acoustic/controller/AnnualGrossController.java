@@ -51,11 +51,12 @@ public class AnnualGrossController {
 
     private void sendAnnualGrossDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var annualGrossSalary = calculateAnnualGross(grossMonthlySalary);
-        this.salaryCalculatorService.sendAnnualGross(AnnualGross.builder().description(this.salaryCalculatorService.getDescription()).amount(annualGrossSalary).uuid(uuid).build());
+        var annualGrossData = saveAnnualGross(annualGrossSalary, uuid);
+        this.salaryCalculatorService.sendAnnualGross(annualGrossData);
     }
 
-    private void saveAnnualGross(BigDecimal annualGross, UUID uuid) {
-        this.annualGrossRepository.saveAndFlush(AnnualGross.builder().description(this.salaryCalculatorService.getDescription()).amount(annualGross).uuid(uuid).build());
+    private AnnualGross saveAnnualGross(BigDecimal annualGross, UUID uuid) {
+        return this.annualGrossRepository.saveAndFlush(AnnualGross.builder().description(this.salaryCalculatorService.getDescription()).amount(annualGross).uuid(uuid).build());
     }
 
     private BigDecimal calculateAnnualGross(BigDecimal grossMonthlySalary) {

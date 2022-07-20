@@ -1,7 +1,6 @@
 package com.acoustic.controller;
 
 
-import com.acoustic.entity.DataProducer;
 import com.acoustic.entity.MonthlyGross;
 import com.acoustic.repository.MonthlyGrossRepository;
 import com.acoustic.service.SalaryCalculatorService;
@@ -33,32 +32,32 @@ public class MonthlyGrossController {
     private final SalaryCalculatorService salaryCalculatorService;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueProducers}")
-    public void receivedMessage(DataProducer dataProducer) {
-        log.warn(dataProducer.getUuid().toString());
-        sendAnnualGrossDataToReceiver(dataProducer.getAmount(), dataProducer.getUuid());
+    @RabbitListener(queues = "${rabbitmq.queueMonthlyGross}")
+    public void receivedMessage(MonthlyGross monthlyGross) {
+        log.warn(monthlyGross.getUuid().toString());
+        sendMonthlyGrossDataToSalaryCalculatorOrchestrator(monthlyGross.getAmount(), monthlyGross.getUuid());
 
     }
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateAnnualNetEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
-        var annualNet = calculateAnnualGross(grossMonthlySalary);
-        saveAnnualGross(annualNet, UUID.randomUUID());
+    public ResponseEntity<Map<String, String>> calculateMonthlyGrossEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
+        var annualNet = calculateMonthlyGross(grossMonthlySalary);
+        saveMonthlyGross(annualNet, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualNet)));
     }
 
-    private void sendAnnualGrossDataToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
-        var monthlyGross = calculateAnnualGross(grossMonthlySalary);
-        var monthlyGrossData = saveAnnualGross(monthlyGross, uuid);
+    private void sendMonthlyGrossDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
+        var monthlyGross = calculateMonthlyGross(grossMonthlySalary);
+        var monthlyGrossData = saveMonthlyGross(monthlyGross, uuid);
         this.salaryCalculatorService.sendMonthlyGross(monthlyGrossData);
     }
 
-    private MonthlyGross saveAnnualGross(BigDecimal monthlyGross, UUID uuid) {
+    private MonthlyGross saveMonthlyGross(BigDecimal monthlyGross, UUID uuid) {
         return this.monthlyGrossRepository.saveAndFlush(MonthlyGross.builder().description(this.salaryCalculatorService.getDescription()).amount(monthlyGross).uuid(uuid).build());
     }
 
-    private BigDecimal calculateAnnualGross(BigDecimal grossMonthlySalary) {
+    private BigDecimal calculateMonthlyGross(BigDecimal grossMonthlySalary) {
         return this.salaryCalculatorService.apply(grossMonthlySalary);
     }
 }

@@ -38,7 +38,7 @@ public class TaxService implements SalaryCalculatorService {
 
     @Override
     public void sendTax(Tax tax) {
-        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchange(), this.rabbitMqSettings.getRoutingKey(), tax);
+        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(), this.rabbitMqSettings.getRoutingKeySalaryCalculator(), tax);
     }
 
     private BigDecimal calculateTotalZus(BigDecimal grossMonthlySalary) {

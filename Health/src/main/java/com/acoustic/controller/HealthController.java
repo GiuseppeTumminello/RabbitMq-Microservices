@@ -46,11 +46,12 @@ public class HealthController {
 
     private void sendHealthDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var health = calculateHealth(grossMonthlySalary);
-        this.salaryCalculatorService.sendAnnualNet(Health.builder().description(this.salaryCalculatorService.getDescription()).amount(health).uuid(uuid).build());
+        var healthData = saveHealth(health, uuid);
+        this.salaryCalculatorService.sendAnnualNet(healthData);
     }
 
-    private void saveHealth(BigDecimal health, UUID uuid) {
-        this.healthRepository.saveAndFlush(Health.builder().description(this.salaryCalculatorService.getDescription()).amount(health).uuid(uuid).build());
+    private Health saveHealth(BigDecimal health, UUID uuid) {
+        return this.healthRepository.saveAndFlush(Health.builder().description(this.salaryCalculatorService.getDescription()).amount(health).uuid(uuid).build());
     }
 
     private BigDecimal calculateHealth(BigDecimal grossMonthlySalary) {

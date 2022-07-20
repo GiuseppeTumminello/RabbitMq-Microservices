@@ -1,7 +1,6 @@
 package com.acoustic.controller;
 
 
-import com.acoustic.entity.DataProducer;
 import com.acoustic.entity.SicknessZus;
 import com.acoustic.repository.SicknessZusRepository;
 import com.acoustic.service.SalaryCalculatorService;
@@ -34,10 +33,10 @@ public class SicknessZusController {
 
 
 
-    @RabbitListener(queues = "${rabbitmq.queueProducers}")
-    public void receivedMessage(DataProducer dataProducer) {
-        log.warn(dataProducer.getUuid().toString());
-        sendSicknessZusToReceiver(dataProducer.getAmount(), dataProducer.getUuid());
+    @RabbitListener(queues = "${rabbitmq.queueSicknessZus}")
+    public void receivedMessage(SicknessZus sicknessZus) {
+        log.warn(sicknessZus.getUuid().toString());
+        sendSicknessZusDataToSalaryCalculatorOrchestrator(sicknessZus.getAmount(), sicknessZus.getUuid());
 
     }
 
@@ -49,7 +48,7 @@ public class SicknessZusController {
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(sicknessZus)));
     }
 
-    private void sendSicknessZusToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
+    private void sendSicknessZusDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var sicknessZus = calculateSicknessZus(grossMonthlySalary);
         var sicknessZusData = saveSicknessZus(sicknessZus, uuid);
         this.salaryCalculatorService.sendSicknessZus(sicknessZusData);

@@ -28,7 +28,7 @@ public class PensionZusService implements SalaryCalculatorService{
 
     @Override
     public void sendPensionZus(PensionZus pensionZus) {
-        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchange(), this.rabbitMqSettings.getRoutingKey(), pensionZus);
+        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(), this.rabbitMqSettings.getRoutingKeySalaryCalculator(), pensionZus);
     }
 
     @Override

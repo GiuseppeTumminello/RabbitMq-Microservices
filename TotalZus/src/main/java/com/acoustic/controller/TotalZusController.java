@@ -1,7 +1,6 @@
 package com.acoustic.controller;
 
 
-import com.acoustic.entity.DataProducer;
 import com.acoustic.entity.TotalZus;
 import com.acoustic.repository.TotalZusRepository;
 import com.acoustic.service.SalaryCalculatorService;
@@ -33,10 +32,10 @@ public class TotalZusController {
     private final SalaryCalculatorService salaryCalculatorService;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueProducers}")
-    public void receivedMessage(DataProducer dataProducer) {
-        log.warn(dataProducer.getUuid().toString());
-        sendTotalZusToReceiver(dataProducer.getAmount(), dataProducer.getUuid());
+    @RabbitListener(queues = "${rabbitmq.queueTotalZus}")
+    public void receivedMessage(TotalZus totalZus) {
+        log.warn(totalZus.getUuid().toString());
+        sendTotalZusDataToSalaryCalculatorOrchestrator(totalZus.getAmount(), totalZus.getUuid());
 
     }
 
@@ -48,7 +47,7 @@ public class TotalZusController {
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(totalZus)));
     }
 
-    private void sendTotalZusToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
+    private void sendTotalZusDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var totalZus = calculateTotalZus(grossMonthlySalary);
         var totalZusData = saveTotalZus(totalZus, uuid);
         this.salaryCalculatorService.sendTotalZus(totalZusData);

@@ -28,7 +28,7 @@ public class TotalZusService implements SalaryCalculatorService{
 
     @Override
     public void sendTotalZus(TotalZus totalZus) {
-        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchange(), this.rabbitMqSettings.getRoutingKey(), totalZus);
+        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(), this.rabbitMqSettings.getRoutingKeySalaryCalculator(), totalZus);
     }
 
     @Override

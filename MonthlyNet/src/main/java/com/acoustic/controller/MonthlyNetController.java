@@ -1,7 +1,6 @@
 package com.acoustic.controller;
 
 
-import com.acoustic.entity.DataProducer;
 import com.acoustic.entity.MonthlyNet;
 import com.acoustic.repository.MonthlyNetRepository;
 import com.acoustic.service.SalaryCalculatorService;
@@ -24,18 +23,17 @@ import java.util.UUID;
 @Slf4j
 public class MonthlyNetController {
 
-    public static final String DESCRIPTION = "description";
-    public static final String VALUE = "value";
+
     public static final int MINIMUM_GROSS = 2000;
     private final MonthlyNetRepository monthlyNetRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
 
 
-    @RabbitListener(queues = "${rabbitmq.queueProducers}")
-    public void receivedMessage(DataProducer dataProducer) {
-        log.warn(dataProducer.getUuid().toString());
-        sendMonthlyNetDataToReceiver(dataProducer.getAmount(), dataProducer.getUuid());
+    @RabbitListener(queues = "${rabbitmq.queueMonthlyNet}")
+    public void receivedMessage(MonthlyNet monthlyNet) {
+        log.warn(monthlyNet.getUuid().toString());
+        sendMonthlyNetDataToSalaryCalculatorOrchestrator(monthlyNet.getAmount(), monthlyNet.getUuid());
 
     }
 
@@ -47,10 +45,10 @@ public class MonthlyNetController {
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualNet)));
     }
 
-    private void sendMonthlyNetDataToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
+    private void sendMonthlyNetDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var monthlyNet = calculateMonthlyData(grossMonthlySalary);
-        var monthlyGrossData = saveMonthlyData(monthlyNet, uuid);
-        this.salaryCalculatorService.sendMonthlyNet(monthlyGrossData);
+        var monthlyNetData = saveMonthlyData(monthlyNet, uuid);
+        this.salaryCalculatorService.sendMonthlyNet(monthlyNetData);
     }
 
     private MonthlyNet saveMonthlyData(BigDecimal monthlyNet, UUID uuid) {

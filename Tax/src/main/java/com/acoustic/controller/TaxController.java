@@ -1,7 +1,6 @@
 package com.acoustic.controller;
 
 
-import com.acoustic.entity.DataProducer;
 import com.acoustic.entity.Tax;
 import com.acoustic.repository.TaxRepository;
 import com.acoustic.service.SalaryCalculatorService;
@@ -29,10 +28,10 @@ public class TaxController {
     private final SalaryCalculatorService salaryCalculatorService;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueProducers}")
-    public void receivedMessage(DataProducer dataProducer) {
-        log.warn(dataProducer.getUuid().toString());
-        sendTaxToReceiver(dataProducer.getAmount(), dataProducer.getUuid());
+    @RabbitListener(queues = "${rabbitmq.queueTax}")
+    public void receivedMessage(Tax tax) {
+        log.warn(tax.getUuid().toString());
+        sendTaxDataToSalaryCalculatorOrchestrator(tax.getAmount(), tax.getUuid());
 
     }
 
@@ -44,7 +43,7 @@ public class TaxController {
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(sicknessZus)));
     }
 
-    private void sendTaxToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
+    private void sendTaxDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var tax = calculateTax(grossMonthlySalary);
         var taxData = saveTax(tax, uuid);
         this.salaryCalculatorService.sendTax(taxData);

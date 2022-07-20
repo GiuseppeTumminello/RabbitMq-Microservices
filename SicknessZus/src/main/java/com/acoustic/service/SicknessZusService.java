@@ -27,7 +27,7 @@ public class SicknessZusService implements SalaryCalculatorService{
 
     @Override
     public void sendSicknessZus(SicknessZus sicknessZus) {
-        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchange(), this.rabbitMqSettings.getRoutingKey(), sicknessZus);
+        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(), this.rabbitMqSettings.getRoutingKeySalaryCalculator(), sicknessZus);
     }
 
     @Override

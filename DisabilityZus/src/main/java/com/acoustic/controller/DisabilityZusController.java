@@ -48,7 +48,8 @@ public class DisabilityZusController {
 
     private void sendDisabilityZusDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var disabilityZus = calculateAnnualGross(grossMonthlySalary);
-        this.salaryCalculatorService.sendDisabilityZus(DisabilityZus.builder().description(this.salaryCalculatorService.getDescription()).amount(disabilityZus).uuid(uuid).build());
+        var disabilityZusData = saveAnnualGross(disabilityZus, uuid);
+        this.salaryCalculatorService.sendDisabilityZus(disabilityZusData);
     }
 
     private DisabilityZus saveAnnualGross(BigDecimal disabilityZus, UUID uuid) {
