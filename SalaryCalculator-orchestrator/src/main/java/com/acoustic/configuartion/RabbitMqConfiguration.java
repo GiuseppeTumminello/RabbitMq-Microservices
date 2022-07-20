@@ -27,6 +27,23 @@ public class RabbitMqConfiguration {
     }
 
     @Bean
+    public Queue salaryCalculatorQueue(){
+        return new Queue(rabbitMqValues.getQueueSalaryCalculator(), true);
+    }
+
+    @Bean
+    public Exchange salaryCalculatorExchange() {
+        return ExchangeBuilder.directExchange(rabbitMqValues.getExchangeSalaryCalculator()).durable(true).build();
+    }
+
+    @Bean
+    public Binding bindingSalaryCalculator() {
+        return BindingBuilder
+                .bind(salaryCalculatorQueue())
+                .to(salaryCalculatorExchange()).with(rabbitMqValues.getRoutingKeySalaryCalculator()).noargs();
+    }
+
+    @Bean
     public FanoutExchange myExchange() {
         return ExchangeBuilder.fanoutExchange(rabbitMqValues.getExchange()).durable(true).build();
     }

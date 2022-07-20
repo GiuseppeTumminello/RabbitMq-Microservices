@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.util.NestedServletException;
 
 import java.math.BigDecimal;
+import java.util.concurrent.ExecutionException;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
@@ -85,7 +86,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
             "12191.68, it, 30",
             "185891.68, finance, 40"})
     public void getSalaryCalculationIdOutOfBounds(
-            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws InterruptedException {
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws InterruptedException, ExecutionException {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
         when(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, departmentName, jobTitleId)).thenThrow(new RuntimeException("Exception"));
@@ -110,7 +111,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
             "12191.68, rest, 2",
             "185891.68, finances, 3"})
     public void getSalaryCalculationWrongDepartmentName(
-            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws InterruptedException {
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws InterruptedException, ExecutionException {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
         when(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, departmentName, jobTitleId)).thenThrow(new RuntimeException("Exception"));
@@ -134,7 +135,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
             "1999.9999, it, 2",
             "0, finance, 3"})
     public void getSalaryCalculationGrossBelowTrashHold(
-            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws InterruptedException {
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws InterruptedException, ExecutionException {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
         when(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, departmentName, jobTitleId)).thenThrow(new RuntimeException("Exception"));

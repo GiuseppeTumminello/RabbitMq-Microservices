@@ -2,7 +2,6 @@ package com.acoustic.controller;
 
 
 import com.acoustic.entity.AnnualGross;
-import com.acoustic.entity.DataProducer;
 import com.acoustic.repository.AnnualGrossRepository;
 import com.acoustic.service.SalaryCalculatorService;
 import lombok.RequiredArgsConstructor;
@@ -36,9 +35,9 @@ public class AnnualGrossController {
 
 
     @RabbitListener(queues = "${rabbitmq.queueAnnualGross}")
-    public void receivedMessage(DataProducer dataProducer) {
-        log.warn(dataProducer.getUuid().toString());
-        sendAnnualGrossDataToReceiver(dataProducer.getAmount(),dataProducer.getUuid());
+    public void receivedMessage(AnnualGross dataProducer) {
+        log.warn(dataProducer.getDescription() + " " + dataProducer.getAmount() + " " + dataProducer.getUuid() + " " + dataProducer.getId());
+        sendAnnualGrossDataToSalaryCalculatorOrchestrator(dataProducer.getAmount(),dataProducer.getUuid());
 
     }
 
@@ -50,14 +49,13 @@ public class AnnualGrossController {
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualGross)));
     }
 
-    private void sendAnnualGrossDataToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
+    private void sendAnnualGrossDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var annualGrossSalary = calculateAnnualGross(grossMonthlySalary);
-        var AnnualGrossData = saveAnnualGross(annualGrossSalary, uuid);
-        this.salaryCalculatorService.sendAnnualGross(AnnualGrossData);
+        this.salaryCalculatorService.sendAnnualGross(AnnualGross.builder().description(this.salaryCalculatorService.getDescription()).amount(annualGrossSalary).uuid(uuid).build());
     }
 
-    private AnnualGross saveAnnualGross(BigDecimal annualGross, UUID uuid) {
-        return this.annualGrossRepository.saveAndFlush(AnnualGross.builder().description(this.salaryCalculatorService.getDescription()).amount(annualGross).uuid(uuid).build());
+    private void saveAnnualGross(BigDecimal annualGross, UUID uuid) {
+        this.annualGrossRepository.saveAndFlush(AnnualGross.builder().description(this.salaryCalculatorService.getDescription()).amount(annualGross).uuid(uuid).build());
     }
 
     private BigDecimal calculateAnnualGross(BigDecimal grossMonthlySalary) {

@@ -30,7 +30,7 @@ public class AnnualGrossAmount implements SalaryCalculatorService {
 
     @Override
     public void sendAnnualGross(AnnualGross annualGross) {
-        //this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchange(), rabbitMqSettings.getRoutingKeyProducers(), annualGross);
+        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(), rabbitMqSettings.getRoutingKeySalaryCalculator(), annualGross);
     }
 
 

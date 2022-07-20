@@ -38,6 +38,6 @@ public class HealthService implements SalaryCalculatorService{
 
     @Override
     public void sendAnnualNet(Health health) {
-        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchange(), this.rabbitMqSettings.getRoutingKey(), health);
+        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(), this.rabbitMqSettings.getRoutingKeySalaryCalculator(), health);
     }
 }

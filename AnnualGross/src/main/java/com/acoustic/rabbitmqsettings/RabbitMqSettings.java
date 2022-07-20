@@ -16,4 +16,7 @@ public class RabbitMqSettings {
     private String queueAnnualGross;
     private String exchange;
     private boolean durable;
+    private String queueSalaryCalculator;
+    private String routingKeySalaryCalculator;
+    private String exchangeSalaryCalculator;
 }

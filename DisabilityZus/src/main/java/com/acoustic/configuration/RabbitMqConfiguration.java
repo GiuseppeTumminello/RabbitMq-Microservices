@@ -17,25 +17,31 @@ public class RabbitMqConfiguration {
     private final RabbitMqSettings rabbitMqSettings;
 
     @Bean
-    public Queue queue() {
-        return new Queue(rabbitMqSettings.getQueueProducers(), true);
+    public Queue disabilityZusQueue() {
+        return new Queue(rabbitMqSettings.getQueueDisabilityZus(), rabbitMqSettings.isDurable());
     }
 
     @Bean
-    public Exchange myExchange() {
-        return ExchangeBuilder.directExchange(rabbitMqSettings.getExchangeProducers()).durable(true).build();
+    public Queue salaryCalculatorOrchestratorQueue(){
+        return new Queue(rabbitMqSettings.getQueueSalaryCalculator(), rabbitMqSettings.isDurable());
     }
 
     @Bean
-    public Binding binding() {
+    public Exchange salaryCalculatorOrchestratorExchange() {
+        return ExchangeBuilder.directExchange(rabbitMqSettings.getExchangeSalaryCalculator()).durable(rabbitMqSettings.isDurable()).build();
+    }
+
+    @Bean
+    public FanoutExchange microservicesExchange() {
+        return ExchangeBuilder.fanoutExchange(rabbitMqSettings.getExchange()).durable(rabbitMqSettings.isDurable()).build();
+    }
+
+    @Bean
+    public Binding disabilityZusBinding() {
         return BindingBuilder
-                .bind(queue())
-                .to(myExchange())
-                .with(rabbitMqSettings.getRoutingKeyProducers())
-                .noargs();
+                .bind(disabilityZusQueue())
+                .to(microservicesExchange());
     }
-
-
 
     @Bean
     public MessageConverter jsonMessageConverter() {
@@ -49,6 +55,5 @@ public class RabbitMqConfiguration {
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
         return rabbitTemplate;
     }
-
 
 }

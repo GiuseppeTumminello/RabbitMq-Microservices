@@ -21,4 +21,8 @@ public class RabbitMqSettings {
 //    private String exchangeProducers;
 //    private String routingKeyProducers;
 //    private String queueProducers;
+
+    private String queueSalaryCalculator;
+    private String routingKeySalaryCalculator;
+    private String exchangeSalaryCalculator;
 }

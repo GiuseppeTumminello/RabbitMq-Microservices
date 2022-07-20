@@ -21,17 +21,30 @@ public class RabbitMqConfiguration {
         return new Queue(rabbitMqSettings.getQueueAnnualNet(), true);
     }
 
+    @Bean
+    public Queue salaryCalculatorOrchestratorQueue(){
+        return new Queue(rabbitMqSettings.getQueueSalaryCalculator(), rabbitMqSettings.isDurable());
+    }
+
 
     @Bean
-    public FanoutExchange myExchange() {
-        return ExchangeBuilder.fanoutExchange(rabbitMqSettings.getExchange()).durable(true).build();
+    public Exchange salaryCalculatorOrchestratorExchange() {
+        return ExchangeBuilder.directExchange(rabbitMqSettings.getExchangeSalaryCalculator()).durable(rabbitMqSettings.isDurable()).build();
     }
+
+    @Bean
+    public FanoutExchange microservicesExchange() {
+        return ExchangeBuilder.fanoutExchange(rabbitMqSettings.getExchange()).durable(rabbitMqSettings.isDurable()).build();
+    }
+
+
+
 
     @Bean
     public Binding bindingAnnualNet() {
         return BindingBuilder
                 .bind(queueAnnualNet())
-                .to(myExchange());
+                .to(microservicesExchange());
     }
 
 

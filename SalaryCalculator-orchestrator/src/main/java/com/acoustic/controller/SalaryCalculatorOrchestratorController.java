@@ -3,12 +3,13 @@ package com.acoustic.controller;
 
 import com.acoustic.entity.SalaryCalculatorOrchestratorData;
 import com.acoustic.jobcategories.JobCategoriesConfigurationProperties;
-import com.acoustic.model.DataProducer;
+import com.acoustic.model.MicroservicesData;
 import com.acoustic.rabbitmqsettings.RabbitMqSettings;
 import com.acoustic.repository.DataProducerRepository;
 import com.acoustic.repository.DataSalaryCalculatorRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.annotation.RabbitListenerConfigurer;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar;
@@ -23,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/salary-calculations")
@@ -38,7 +40,6 @@ public class SalaryCalculatorOrchestratorController implements RabbitListenerCon
     private final DataSalaryCalculatorRepository dataSalaryCalculatorRepository;
     private final Map<String, BigDecimal> response;
 
-
     private final RabbitTemplate rabbitTemplate;
 
     private final RabbitMqSettings rabbitMqSettings;
@@ -51,13 +52,14 @@ public class SalaryCalculatorOrchestratorController implements RabbitListenerCon
 
     }
 
-//    @RabbitListener(queues = "${rabbitmq.queue}")
-//    public void receivedMessage(Data data) {
-//        this.response.put(data.getDescription(), data.getAmount());
-//        System.out.println(response);
-//
-//
-//    }
+    @RabbitListener(queues = "${rabbitmq.queueSalaryCalculator}")
+    public void receivedMessage(MicroservicesData microservicesData) {
+        this.response.put(microservicesData.getDescription(), microservicesData.getAmount());
+        System.out.println(microservicesData.getAmount() + " " + microservicesData.getDescription() +" "+ microservicesData.getUuid());
+        dataProducerRepository.save(microservicesData);
+
+
+    }
 
 
     @GetMapping("/jobs/{departmentName}")
@@ -72,11 +74,12 @@ public class SalaryCalculatorOrchestratorController implements RabbitListenerCon
 
 
     @PostMapping("/calculations/{grossMonthlySalary}")
-    public Map<String, BigDecimal> calculateSalary(@PathVariable @Min(value = MINIMUM_GROSS, message = "Must be Greater than or equal to 2000.00") @NotNull BigDecimal grossMonthlySalary, @RequestParam(required = false) String departmentName, @RequestParam(required = false) Integer jobTitleId) throws InterruptedException {
+    public Map<String, BigDecimal> calculateSalary(@PathVariable @Min(value = MINIMUM_GROSS, message = "Must be Greater than or equal to 2000.00") @NotNull BigDecimal grossMonthlySalary, @RequestParam(required = false) String departmentName, @RequestParam(required = false) Integer jobTitleId) throws InterruptedException, ExecutionException {
 
         var uuid = getCalculationFromMicroservices(grossMonthlySalary);
 
         var data = dataProducerRepository.findDataByUuid(uuid);
+        System.out.println("here -> " + data.get().toString());
 
 
         if (departmentName == null || jobTitleId == null) {
@@ -99,7 +102,7 @@ public class SalaryCalculatorOrchestratorController implements RabbitListenerCon
 
     private UUID getCalculationFromMicroservices(BigDecimal grossMonthlySalary) {
         var uuid = UUID.randomUUID();
-        rabbitTemplate.convertAndSend(rabbitMqSettings.getExchange(), "", new DataProducer(grossMonthlySalary, uuid));
+        rabbitTemplate.convertAndSend(rabbitMqSettings.getExchange(), "", MicroservicesData.builder().amount(grossMonthlySalary).description(this.getClass().getSimpleName()).uuid(uuid).build());
         return uuid;
 
     }

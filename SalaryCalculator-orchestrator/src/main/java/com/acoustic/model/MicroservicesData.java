@@ -17,7 +17,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Data {
+@Builder
+public class MicroservicesData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

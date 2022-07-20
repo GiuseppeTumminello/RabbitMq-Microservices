@@ -1,7 +1,6 @@
 package com.acoustic.controller;
 
 
-import com.acoustic.entity.DataProducer;
 import com.acoustic.entity.Health;
 import com.acoustic.repository.HealthRepository;
 import com.acoustic.service.SalaryCalculatorService;
@@ -30,32 +29,31 @@ public class HealthController {
     private final SalaryCalculatorService salaryCalculatorService;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueProducers}")
-    public void receivedMessage(DataProducer dataProducer) {
-        log.warn(dataProducer.getUuid().toString());
-        sendAnnualGrossDataToReceiver(dataProducer.getAmount(), dataProducer.getUuid());
+    @RabbitListener(queues = "${rabbitmq.queueHealth}")
+    public void receivedMessage(Health health) {
+        log.warn(health.getUuid().toString());
+        sendHealthDataToSalaryCalculatorOrchestrator(health.getAmount(), health.getUuid());
 
     }
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateAnnualNetEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
-        var annualNet = calculateAnnualGross(grossMonthlySalary);
-        saveAnnualGross(annualNet, UUID.randomUUID());
-        return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualNet)));
+    public ResponseEntity<Map<String, String>> calculateHealthEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
+        var health = calculateHealth(grossMonthlySalary);
+        saveHealth(health, UUID.randomUUID());
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(health)));
     }
 
-    private void sendAnnualGrossDataToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
-        var health = calculateAnnualGross(grossMonthlySalary);
-        var healthData = saveAnnualGross(health, uuid);
-        this.salaryCalculatorService.sendAnnualNet(healthData);
+    private void sendHealthDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
+        var health = calculateHealth(grossMonthlySalary);
+        this.salaryCalculatorService.sendAnnualNet(Health.builder().description(this.salaryCalculatorService.getDescription()).amount(health).uuid(uuid).build());
     }
 
-    private Health saveAnnualGross(BigDecimal health, UUID uuid) {
-        return this.healthRepository.saveAndFlush(Health.builder().description(this.salaryCalculatorService.getDescription()).amount(health).uuid(uuid).build());
+    private void saveHealth(BigDecimal health, UUID uuid) {
+        this.healthRepository.saveAndFlush(Health.builder().description(this.salaryCalculatorService.getDescription()).amount(health).uuid(uuid).build());
     }
 
-    private BigDecimal calculateAnnualGross(BigDecimal grossMonthlySalary) {
+    private BigDecimal calculateHealth(BigDecimal grossMonthlySalary) {
         return this.salaryCalculatorService.apply(grossMonthlySalary);
     }
 }

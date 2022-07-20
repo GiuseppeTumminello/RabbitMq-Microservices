@@ -2,7 +2,6 @@ package com.acoustic.controller;
 
 
 import com.acoustic.entity.AnnualNet;
-import com.acoustic.entity.DataProducer;
 import com.acoustic.repository.AnnualNetRepository;
 import com.acoustic.service.SalaryCalculatorService;
 import lombok.RequiredArgsConstructor;
@@ -38,31 +37,30 @@ public class AnnualNetController implements RabbitListenerConfigurer {
 
 
     @RabbitListener(queues = "${rabbitmq.queueAnnualNet}")
-    public void receivedMessage(DataProducer dataProducer) {
-        log.warn(dataProducer.getUuid().toString());
-        sendAnnualGrossDataToReceiver(dataProducer.getAmount(),dataProducer.getUuid());
+    public void receivedMessage(AnnualNet annualNet) {
+        log.warn(annualNet.getUuid().toString());
+        sendAnnualNetEndpointDataToReceiver(annualNet.getAmount(),annualNet.getUuid());
 
     }
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
     public ResponseEntity<Map<String, String>> calculateAnnualNetEndpoint(@PathVariable @Min(MINIMUM_GROSS)BigDecimal grossMonthlySalary){
-        var annualNet = calculateAnnualGross(grossMonthlySalary);
-        saveAnnualGross(annualNet, UUID.randomUUID());
+        var annualNet = calculateAnnualNet(grossMonthlySalary);
+        saveAnnualNet(annualNet, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualNet)));
     }
 
-    private void sendAnnualGrossDataToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
-        var annualGrossSalary = calculateAnnualGross(grossMonthlySalary);
-        var AnnualGrossData = saveAnnualGross(annualGrossSalary, uuid);
-        this.salaryCalculatorService.sendAnnualNet(AnnualGrossData);
+    private void sendAnnualNetEndpointDataToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
+        var annualGrossSalary = calculateAnnualNet(grossMonthlySalary);
+        this.salaryCalculatorService.sendAnnualNet(AnnualNet.builder().description(this.salaryCalculatorService.getDescription()).amount(annualGrossSalary).uuid(uuid).build());
     }
 
-    private AnnualNet saveAnnualGross(BigDecimal annualNet, UUID uuid) {
-        return this.annualNetRepository.saveAndFlush(AnnualNet.builder().description(this.salaryCalculatorService.getDescription()).amount(annualNet).uuid(uuid).build());
+    private void saveAnnualNet(BigDecimal annualNet, UUID uuid) {
+        this.annualNetRepository.saveAndFlush(AnnualNet.builder().description(this.salaryCalculatorService.getDescription()).amount(annualNet).uuid(uuid).build());
     }
 
-    private BigDecimal calculateAnnualGross(BigDecimal grossMonthlySalary) {
+    private BigDecimal calculateAnnualNet(BigDecimal grossMonthlySalary) {
         return this.salaryCalculatorService.apply(grossMonthlySalary);
     }
 

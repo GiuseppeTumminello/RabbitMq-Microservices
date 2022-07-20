@@ -1,7 +1,6 @@
 package com.acoustic.controller;
 
 
-import com.acoustic.entity.DataProducer;
 import com.acoustic.entity.DisabilityZus;
 import com.acoustic.repository.DisabilityZusRepository;
 import com.acoustic.service.SalaryCalculatorService;
@@ -32,25 +31,24 @@ public class DisabilityZusController {
     private final SalaryCalculatorService salaryCalculatorService;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueProducers}")
-    public void receivedMessage(DataProducer dataProducer) {
-        log.warn(dataProducer.getUuid().toString());
-        sendAnnualGrossDataToReceiver(dataProducer.getAmount(), dataProducer.getUuid());
+    @RabbitListener(queues = "${rabbitmq.queueDisabilityZus}")
+    public void receivedMessage(DisabilityZus disabilityZus) {
+        log.warn(disabilityZus.getUuid().toString());
+        sendDisabilityZusDataToSalaryCalculatorOrchestrator(disabilityZus.getAmount(), disabilityZus.getUuid());
 
     }
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateAnnualNetEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
+    public ResponseEntity<Map<String, String>> calculateDisabilityZusEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
         var annualNet = calculateAnnualGross(grossMonthlySalary);
         saveAnnualGross(annualNet, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualNet)));
     }
 
-    private void sendAnnualGrossDataToReceiver(BigDecimal grossMonthlySalary, UUID uuid) {
+    private void sendDisabilityZusDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var disabilityZus = calculateAnnualGross(grossMonthlySalary);
-        var disabilityZusData = saveAnnualGross(disabilityZus, uuid);
-        this.salaryCalculatorService.sendDisabilityZus(disabilityZusData);
+        this.salaryCalculatorService.sendDisabilityZus(DisabilityZus.builder().description(this.salaryCalculatorService.getDescription()).amount(disabilityZus).uuid(uuid).build());
     }
 
     private DisabilityZus saveAnnualGross(BigDecimal disabilityZus, UUID uuid) {

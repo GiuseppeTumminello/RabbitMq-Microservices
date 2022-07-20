@@ -17,23 +17,31 @@ public class RabbitMqConfiguration {
     private final RabbitMqSettings rabbitMqSettings;
 
     @Bean
-    public Queue queueAnnualNet() {
-        return new Queue(rabbitMqSettings.getQueueAnnualGross(), true);
-    }
-
-
-    @Bean
-    public FanoutExchange myExchange() {
-        return ExchangeBuilder.fanoutExchange(rabbitMqSettings.getExchange()).durable(true).build();
+    public Queue annualNetQueue() {
+        return new Queue(rabbitMqSettings.getQueueAnnualGross(), rabbitMqSettings.isDurable());
     }
 
     @Bean
-    public Binding bindingAnnualNet() {
+    public Queue salaryCalculatorOrchestratorQueue(){
+        return new Queue(rabbitMqSettings.getQueueSalaryCalculator(), rabbitMqSettings.isDurable());
+    }
+
+    @Bean
+    public Exchange salaryCalculatorOrchestratorExchange() {
+        return ExchangeBuilder.directExchange(rabbitMqSettings.getExchangeSalaryCalculator()).durable(rabbitMqSettings.isDurable()).build();
+    }
+
+    @Bean
+    public FanoutExchange microservicesExchange() {
+        return ExchangeBuilder.fanoutExchange(rabbitMqSettings.getExchange()).durable(rabbitMqSettings.isDurable()).build();
+    }
+
+    @Bean
+    public Binding annualNetBinding() {
         return BindingBuilder
-                .bind(queueAnnualNet())
-                .to(myExchange());
+                .bind(annualNetQueue())
+                .to(microservicesExchange());
     }
-
 
     @Bean
     public MessageConverter jsonMessageConverter() {
