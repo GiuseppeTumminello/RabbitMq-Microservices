@@ -35,10 +35,10 @@ public class AnnualGrossController {
     private final AnnualGrossRepository annualGrossRepository;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueProducers}")
+    @RabbitListener(queues = "${rabbitmq.queueAnnualGross}")
     public void receivedMessage(DataProducer dataProducer) {
         log.warn(dataProducer.getUuid().toString());
-       sendAnnualGrossDataToReceiver(dataProducer.getAmount(),dataProducer.getUuid());
+        sendAnnualGrossDataToReceiver(dataProducer.getAmount(),dataProducer.getUuid());
 
     }
 
@@ -63,5 +63,4 @@ public class AnnualGrossController {
     private BigDecimal calculateAnnualGross(BigDecimal grossMonthlySalary) {
         return this.salaryCalculatorService.apply(grossMonthlySalary);
     }
-
 }

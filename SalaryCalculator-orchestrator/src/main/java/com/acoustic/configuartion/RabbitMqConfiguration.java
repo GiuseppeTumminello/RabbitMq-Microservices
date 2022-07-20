@@ -17,22 +17,32 @@ public class RabbitMqConfiguration {
     private final RabbitMqSettings rabbitMqValues;
 
     @Bean
-    public Queue queue() {
-        return new Queue(rabbitMqValues.getQueue(), true);
+    public Queue queueAnnualNet() {
+        return new Queue(rabbitMqValues.getQueueAnnualNet(), true);
     }
 
     @Bean
-    public Exchange myExchange() {
-        return ExchangeBuilder.directExchange(rabbitMqValues.getExchange()).durable(true).build();
+    public Queue queueAnnualGross() {
+        return new Queue(rabbitMqValues.getQueueAnnualGross(), true);
     }
 
     @Bean
-    public Binding binding() {
+    public FanoutExchange myExchange() {
+        return ExchangeBuilder.fanoutExchange(rabbitMqValues.getExchange()).durable(true).build();
+    }
+
+    @Bean
+    public Binding bindingAnnualNet() {
         return BindingBuilder
-                .bind(queue())
-                .to(myExchange())
-                .with(rabbitMqValues.getRoutingKey())
-                .noargs();
+                .bind(queueAnnualNet())
+                .to(myExchange());
+    }
+
+    @Bean
+    public Binding bindingAnnualGross() {
+        return BindingBuilder
+                .bind(queueAnnualGross())
+                .to(myExchange());
     }
 
     @Bean

@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Component
 @Getter
@@ -14,5 +15,5 @@ import java.math.BigDecimal;
 public class DataProducer {
 
     private BigDecimal amount;
-    private String uuid;
+    private UUID uuid;
 }

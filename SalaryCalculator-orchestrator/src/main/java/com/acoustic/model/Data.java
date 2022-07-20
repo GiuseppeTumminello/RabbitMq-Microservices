@@ -24,7 +24,7 @@ public class Data {
 
     private String description;
     private BigDecimal amount;
-    private String uuid;
+    private UUID uuid;
 
 
 

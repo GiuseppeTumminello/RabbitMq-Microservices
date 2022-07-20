@@ -17,23 +17,23 @@ public class RabbitMqConfiguration {
     private final RabbitMqSettings rabbitMqSettings;
 
     @Bean
-    public Queue queue() {
-        return new Queue(rabbitMqSettings.getQueueProducers(), true);
+    public Queue queueAnnualNet() {
+        return new Queue(rabbitMqSettings.getQueueAnnualGross(), true);
+    }
+
+
+    @Bean
+    public FanoutExchange myExchange() {
+        return ExchangeBuilder.fanoutExchange(rabbitMqSettings.getExchange()).durable(true).build();
     }
 
     @Bean
-    public Exchange myExchange() {
-        return ExchangeBuilder.directExchange(rabbitMqSettings.getExchangeProducers()).durable(true).build();
-    }
-
-    @Bean
-    public Binding binding() {
+    public Binding bindingAnnualNet() {
         return BindingBuilder
-                .bind(queue())
-                .to(myExchange())
-                .with(rabbitMqSettings.getRoutingKeyProducers())
-                .noargs();
+                .bind(queueAnnualNet())
+                .to(myExchange());
     }
+
 
     @Bean
     public MessageConverter jsonMessageConverter() {
@@ -47,6 +47,5 @@ public class RabbitMqConfiguration {
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
         return rabbitTemplate;
     }
-
 
 }

@@ -24,7 +24,7 @@ public class MonthlyGrossService implements SalaryCalculatorService{
 
     @Override
     public void sendMonthlyGross(MonthlyGross monthlyGross) {
-        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchange(), this.rabbitMqSettings.getRoutingKey(), monthlyGross);
+        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchange(), monthlyGross);
     }
 
     @Override

@@ -8,6 +8,8 @@ import com.acoustic.service.SalaryCalculatorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.annotation.RabbitListenerConfigurer;
+import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -25,7 +27,7 @@ import java.util.UUID;
 @Validated
 @CrossOrigin
 @Slf4j
-public class AnnualNetController {
+public class AnnualNetController implements RabbitListenerConfigurer {
 
 
     public static final int MINIMUM_GROSS = 2000;
@@ -35,7 +37,7 @@ public class AnnualNetController {
 
 
 
-    @RabbitListener(queues = "${rabbitmq.queueProducers}")
+    @RabbitListener(queues = "${rabbitmq.queueAnnualNet}")
     public void receivedMessage(DataProducer dataProducer) {
         log.warn(dataProducer.getUuid().toString());
         sendAnnualGrossDataToReceiver(dataProducer.getAmount(),dataProducer.getUuid());
@@ -65,5 +67,8 @@ public class AnnualNetController {
     }
 
 
+    @Override
+    public void configureRabbitListeners(RabbitListenerEndpointRegistrar registrar) {
 
+    }
 }
