@@ -24,9 +24,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class TotalZusControllerTest {
 
-    public static final String DESCRIPTION = "description";
+
     public static final String TOTAL_ZUS_DESCRIPTION = "Total zus";
-    public static final String VALUE = "value";
     @Autowired
     private MockMvc mockMvc;
     @Autowired
@@ -38,7 +37,7 @@ class TotalZusControllerTest {
     @ParameterizedTest
     @CsvSource({"6000,822.60", "7000, 959.70", "8555,1172.89", "15143.99,2076.24"})
     public void calculateTotalZus(BigDecimal input, String totalZus) throws Exception {
-        var expected = this.objectMapper.writeValueAsString(Map.of(DESCRIPTION, TOTAL_ZUS_DESCRIPTION, VALUE, totalZus));
+        var expected = this.objectMapper.writeValueAsString(Map.of(TOTAL_ZUS_DESCRIPTION, totalZus));
         this.mockMvc.perform(post(TOTAL_ZUS_ENDPOINT + input).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(expected));

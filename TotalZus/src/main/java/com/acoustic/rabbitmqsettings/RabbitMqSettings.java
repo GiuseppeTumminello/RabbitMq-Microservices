@@ -12,7 +12,6 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:rabbitmq.properties")
 @ConfigurationProperties(prefix = "rabbitmq")
 public class RabbitMqSettings {
-
     private String queueTotalZus;
     private String exchange;
     private boolean durable;

@@ -3,6 +3,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    testImplementation 'org.springframework.amqp:spring-rabbit-test'
+
+
+
 
 
 }

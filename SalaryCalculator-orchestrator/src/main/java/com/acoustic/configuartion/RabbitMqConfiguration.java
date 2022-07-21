@@ -16,15 +16,6 @@ public class RabbitMqConfiguration {
 
     private final RabbitMqSettings rabbitMqValues;
 
-    @Bean
-    public Queue queueAnnualNet() {
-        return new Queue(rabbitMqValues.getQueueAnnualNet(), true);
-    }
-
-    @Bean
-    public Queue queueAnnualGross() {
-        return new Queue(rabbitMqValues.getQueueAnnualGross(), true);
-    }
 
     @Bean
     public Queue salaryCalculatorQueue(){
@@ -48,19 +39,6 @@ public class RabbitMqConfiguration {
         return ExchangeBuilder.fanoutExchange(rabbitMqValues.getExchange()).durable(true).build();
     }
 
-    @Bean
-    public Binding bindingAnnualNet() {
-        return BindingBuilder
-                .bind(queueAnnualNet())
-                .to(myExchange());
-    }
-
-    @Bean
-    public Binding bindingAnnualGross() {
-        return BindingBuilder
-                .bind(queueAnnualGross())
-                .to(myExchange());
-    }
 
     @Bean
     public MessageConverter jsonMessageConverter() {
