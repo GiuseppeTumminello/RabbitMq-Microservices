@@ -29,12 +29,14 @@ public class AnnualGrossController {
 
     public static final int MINIMUM_GROSS = 2000;
 
+    private static final String ANNUAL_GROSS_RECEIVER_ID = "AnnualGrossReceiverId";
+
     private final SalaryCalculatorService salaryCalculatorService;
 
     private final AnnualGrossRepository annualGrossRepository;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueAnnualGross}")
+    @RabbitListener(id = ANNUAL_GROSS_RECEIVER_ID, queues = "${rabbitmq.queueAnnualGross}")
     public void receivedMessage(AnnualGross dataProducer) {
         log.warn(dataProducer.getDescription() + " " + dataProducer.getAmount() + " " + dataProducer.getUuid() + " " + dataProducer.getId());
         sendAnnualGrossDataToSalaryCalculatorOrchestrator(dataProducer.getAmount(),dataProducer.getUuid());

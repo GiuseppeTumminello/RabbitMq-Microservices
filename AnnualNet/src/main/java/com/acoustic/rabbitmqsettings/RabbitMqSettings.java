@@ -13,7 +13,7 @@ import org.springframework.context.annotation.PropertySource;
 @ConfigurationProperties(prefix = "rabbitmq")
 public class RabbitMqSettings {
 
-
+    private String receiverId;
     private String queueAnnualNet;
     private String exchange;
     private String queueSalaryCalculator;

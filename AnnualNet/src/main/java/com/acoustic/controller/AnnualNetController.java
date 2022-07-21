@@ -33,10 +33,12 @@ public class AnnualNetController implements RabbitListenerConfigurer {
     private final AnnualNetRepository annualNetRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
+    private static final String ANNUAL_NET_RECEIVER_ID = "AnnualNetReceiverId";
 
 
 
-    @RabbitListener(queues = "${rabbitmq.queueAnnualNet}")
+
+    @RabbitListener(id = ANNUAL_NET_RECEIVER_ID,queues = "${rabbitmq.queueAnnualNet}")
     public void receivedMessage(AnnualNet annualNet) {
         log.warn(annualNet.getUuid().toString());
         sendAnnualNetEndpointDataToReceiver(annualNet.getAmount(),annualNet.getUuid());

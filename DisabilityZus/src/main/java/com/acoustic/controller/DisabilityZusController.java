@@ -28,7 +28,7 @@ public class DisabilityZusController {
 
     public static final int MINIMUM_GROSS = 2000;
 
-    private static final String DISABILITY_ZUS_RECEIVER_ID = "healthReceiverId";
+    private static final String DISABILITY_ZUS_RECEIVER_ID = "disabilityZusReceiverId";
     private final DisabilityZusRepository disabilityZusRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
