@@ -27,11 +27,13 @@ import java.util.UUID;
 public class DisabilityZusController {
 
     public static final int MINIMUM_GROSS = 2000;
+
+    private static final String DISABILITY_ZUS_RECEIVER_ID = "healthReceiverId";
     private final DisabilityZusRepository disabilityZusRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueDisabilityZus}")
+    @RabbitListener(id = DISABILITY_ZUS_RECEIVER_ID,queues = "${rabbitmq.queueDisabilityZus}")
     public void receivedMessage(DisabilityZus disabilityZus) {
         log.warn(disabilityZus.getUuid().toString());
         sendDisabilityZusDataToSalaryCalculatorOrchestrator(disabilityZus.getAmount(), disabilityZus.getUuid());

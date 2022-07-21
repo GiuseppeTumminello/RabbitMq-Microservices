@@ -44,9 +44,9 @@ public class RabbitMqMonthlyNetTest {
     public void receiveMessageTest(BigDecimal grossMonthlySalary) {
         this.monthlyNetZusController = this.harness.getSpy(this.rabbitMqSettings.getReceiverId());
         assertNotNull(monthlyNetZusController);
-        var pensionZusData = MonthlyNet.builder().description(this.salaryCalculatorService.getDescription()).amount(grossMonthlySalary).uuid(UUID.randomUUID()).build();
-        this.testRabbitTemplate.convertAndSend(this.rabbitMqSettings.getQueueMonthlyNet(), pensionZusData);
-        verify(this.monthlyNetZusController).receivedMessage(pensionZusData);
+        var monthlyNetData = MonthlyNet.builder().description(this.salaryCalculatorService.getDescription()).amount(grossMonthlySalary).uuid(UUID.randomUUID()).build();
+        this.testRabbitTemplate.convertAndSend(this.rabbitMqSettings.getQueueMonthlyNet(), monthlyNetData);
+        verify(this.monthlyNetZusController).receivedMessage(monthlyNetData);
     }
 
 }

@@ -25,8 +25,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class MonthlyGrossTest {
 
     public static final String MONTHLY_GROSS_DESCRIPTION = "Monthly gross";
-    public static final String DESCRIPTION = "description";
-    public static final String VALUE = "value";
     private final String MONTHLY_GROSS_ENDPOINT = "/monthly-gross/calculation/";
     @Autowired
     private MockMvc mockMvc;
@@ -39,7 +37,7 @@ class MonthlyGrossTest {
     @ParameterizedTest
     @CsvSource({"6000, 6000.00", "7000, 7000.00", "8555,8555.00", "15143.99,15143.99"})
     public void calculateMonthlyGross(BigDecimal input, String annualGross) throws Exception {
-        var expected = this.objectMapper.writeValueAsString(Map.of(DESCRIPTION,MONTHLY_GROSS_DESCRIPTION, VALUE,annualGross));
+        var expected = this.objectMapper.writeValueAsString(Map.of(MONTHLY_GROSS_DESCRIPTION, annualGross));
         this.mockMvc.perform(post(MONTHLY_GROSS_ENDPOINT + input).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(expected));

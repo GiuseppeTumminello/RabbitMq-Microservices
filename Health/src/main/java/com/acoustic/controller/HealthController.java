@@ -25,11 +25,13 @@ public class HealthController {
 
 
     public static final int MINIMUM_GROSS = 2000;
+
+    private static final String HEALTH_RECEIVER_ID = "healthReceiverId";
     private final HealthRepository healthRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueHealth}")
+    @RabbitListener(id = HEALTH_RECEIVER_ID,queues = "${rabbitmq.queueHealth}")
     public void receivedMessage(Health health) {
         log.warn(health.getUuid().toString());
         sendHealthDataToSalaryCalculatorOrchestrator(health.getAmount(), health.getUuid());

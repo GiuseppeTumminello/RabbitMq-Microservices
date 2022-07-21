@@ -28,11 +28,13 @@ public class MonthlyGrossController {
 
     public static final int MINIMUM_GROSS = 2000;
 
+    private static final String MONTHLY_GROSS_RECEIVER_ID = "monthlyGrossReceiverId";
+
     private final MonthlyGrossRepository monthlyGrossRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueMonthlyGross}")
+    @RabbitListener(id = MONTHLY_GROSS_RECEIVER_ID, queues = "${rabbitmq.queueMonthlyGross}")
     public void receivedMessage(MonthlyGross monthlyGross) {
         log.warn(monthlyGross.getUuid().toString());
         sendMonthlyGrossDataToSalaryCalculatorOrchestrator(monthlyGross.getAmount(), monthlyGross.getUuid());
