@@ -17,6 +17,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Builder
+@Data
 public class MonthlyNet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

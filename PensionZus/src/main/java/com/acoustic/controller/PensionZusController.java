@@ -31,8 +31,10 @@ public class PensionZusController {
     private final PensionZusRepository pensionZusRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
+    private  static final String PENSION_ZUS_RECEIVER_ID = "pensionZusReceiverId";
 
-    @RabbitListener(queues = "${rabbitmq.queuePensionZus}")
+
+    @RabbitListener(id = PENSION_ZUS_RECEIVER_ID ,queues = "${rabbitmq.queuePensionZus}")
     public void receivedMessage(PensionZus pensionZus) {
         log.warn(pensionZus.getUuid().toString());
         sendPensionZusDataToSalaryCalculatorOrchestrator(pensionZus.getAmount(), pensionZus.getUuid());

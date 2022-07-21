@@ -26,6 +26,8 @@ import java.util.UUID;
 @Slf4j
 public class SicknessZusController {
 
+    private  static final String SICKNESS_ZUS_RECEIVER_ID = "sicknessZusReceiverId";
+
     public static final int MINIMUM_GROSS = 2000;
 
     private final SicknessZusRepository sicknessZusRepository;
@@ -33,7 +35,7 @@ public class SicknessZusController {
 
 
 
-    @RabbitListener(queues = "${rabbitmq.queueSicknessZus}")
+    @RabbitListener(id = SICKNESS_ZUS_RECEIVER_ID, queues = "${rabbitmq.queueSicknessZus}")
     public void receivedMessage(SicknessZus sicknessZus) {
         log.warn(sicknessZus.getUuid().toString());
         sendSicknessZusDataToSalaryCalculatorOrchestrator(sicknessZus.getAmount(), sicknessZus.getUuid());

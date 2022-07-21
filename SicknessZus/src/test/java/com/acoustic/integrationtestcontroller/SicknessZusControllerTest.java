@@ -24,9 +24,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class SicknessZusControllerTest {
 
-    public static final String DESCRIPTION = "description";
+
     public static final String SICKNESS_ZUS_DESCRIPTION = "Sickness zus";
-    public static final String VALUE = "value";
     private final String SICKNESS_ZUS_ENDPOINT = "/sickness-zus/calculation/";
     @Autowired
     private MockMvc mockMvc;
@@ -37,7 +36,7 @@ class SicknessZusControllerTest {
     @ParameterizedTest
     @CsvSource({"6000, 147.00", "7000, 171.50", "8555,209.60", "15143.99,371.03"})
     public void calculateSicknessZus(BigDecimal input, String sicknessZus) throws Exception {
-        var expected = this.objectMapper.writeValueAsString(Map.of(DESCRIPTION, SICKNESS_ZUS_DESCRIPTION, VALUE, sicknessZus));
+        var expected = this.objectMapper.writeValueAsString(Map.of(SICKNESS_ZUS_DESCRIPTION, sicknessZus));
         this.mockMvc.perform(post(SICKNESS_ZUS_ENDPOINT + input).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(expected));

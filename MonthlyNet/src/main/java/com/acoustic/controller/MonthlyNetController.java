@@ -28,9 +28,11 @@ public class MonthlyNetController {
     private final MonthlyNetRepository monthlyNetRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
+    private static final String MONTHLY_NET_RECEIVER_ID = "monthlyNetReceiverId";
 
 
-    @RabbitListener(queues = "${rabbitmq.queueMonthlyNet}")
+
+    @RabbitListener(id = MONTHLY_NET_RECEIVER_ID, queues = "${rabbitmq.queueMonthlyNet}")
     public void receivedMessage(MonthlyNet monthlyNet) {
         log.warn(monthlyNet.getUuid().toString());
         sendMonthlyNetDataToSalaryCalculatorOrchestrator(monthlyNet.getAmount(), monthlyNet.getUuid());

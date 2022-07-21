@@ -30,16 +30,13 @@ public class TotalZusController {
     public static final int MINIMUM_GROSS = 2000;
     private final TotalZusRepository totalZusRepository;
     private final SalaryCalculatorService salaryCalculatorService;
-    private Integer counter =0;
+    private  static final String TOTAL_ZUS_RECEIVER_ID = "totalZusReceiverId";
 
 
 
-
-    @RabbitListener(queues = "${rabbitmq.queueTotalZus}")
+    @RabbitListener(id = TOTAL_ZUS_RECEIVER_ID ,queues = "${rabbitmq.queueTotalZus}")
     public void receivedMessage(TotalZus totalZus) {
-        log.warn(totalZus.getUuid().toString());
         sendTotalZusDataToSalaryCalculatorOrchestrator(totalZus.getAmount(), totalZus.getUuid());
-        counter++;
 
     }
 
@@ -65,7 +62,5 @@ public class TotalZusController {
         return this.salaryCalculatorService.apply(grossMonthlySalary);
     }
 
-    public Integer getCounter() {
-        return counter;
-    }
+
 }

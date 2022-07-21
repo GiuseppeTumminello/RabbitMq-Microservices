@@ -24,13 +24,13 @@ import java.util.UUID;
 public class TaxController {
 
     public static final int MINIMUM_GROSS = 2000;
+    private  static final String TAX_RECEIVER_ID = "taxReceiverId";
     private final TaxRepository taxRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
 
-    @RabbitListener(queues = "${rabbitmq.queueTax}")
+    @RabbitListener(id = TAX_RECEIVER_ID,queues = "${rabbitmq.queueTax}")
     public void receivedMessage(Tax tax) {
-        log.warn(tax.getUuid().toString());
         sendTaxDataToSalaryCalculatorOrchestrator(tax.getAmount(), tax.getUuid());
 
     }
@@ -56,7 +56,6 @@ public class TaxController {
     private BigDecimal calculateTax(BigDecimal grossMonthlySalary) {
         return this.salaryCalculatorService.apply(grossMonthlySalary);
     }
-
 
 
 }
