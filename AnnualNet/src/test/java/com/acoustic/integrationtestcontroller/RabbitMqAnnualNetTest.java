@@ -27,13 +27,10 @@ import static org.mockito.Mockito.verify;
 public class RabbitMqAnnualNetTest {
     @Autowired
     private AnnualNetController annualNetController;
-
     @Autowired
     private RabbitListenerTestHarness harness;
-
     @Autowired
     private TestRabbitTemplate testRabbitTemplate;
-
     @Autowired
     private RabbitMqSettings rabbitMqSettings;
     @Autowired

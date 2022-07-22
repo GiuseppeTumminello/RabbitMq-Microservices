@@ -18,27 +18,24 @@ public class RabbitMqConfiguration {
 
     @Bean
     public Queue queueAnnualNet() {
-        return new Queue(rabbitMqSettings.getQueueAnnualNet(), true);
+        return new Queue(this.rabbitMqSettings.getQueueAnnualNet(), true);
     }
 
     @Bean
-    public Queue salaryCalculatorOrchestratorQueue(){
-        return new Queue(rabbitMqSettings.getQueueSalaryCalculator(), rabbitMqSettings.isDurable());
+    public Queue salaryCalculatorOrchestratorQueue() {
+        return new Queue(this.rabbitMqSettings.getQueueSalaryCalculator(), this.rabbitMqSettings.isDurable());
     }
 
 
     @Bean
     public Exchange salaryCalculatorOrchestratorExchange() {
-        return ExchangeBuilder.directExchange(rabbitMqSettings.getExchangeSalaryCalculator()).durable(rabbitMqSettings.isDurable()).build();
+        return ExchangeBuilder.directExchange(this.rabbitMqSettings.getExchangeSalaryCalculator()).durable(this.rabbitMqSettings.isDurable()).build();
     }
 
     @Bean
     public FanoutExchange microservicesExchange() {
-        return ExchangeBuilder.fanoutExchange(rabbitMqSettings.getExchange()).durable(rabbitMqSettings.isDurable()).build();
+        return ExchangeBuilder.fanoutExchange(this.rabbitMqSettings.getExchange()).durable(this.rabbitMqSettings.isDurable()).build();
     }
-
-
-
 
     @Bean
     public Binding bindingAnnualNet() {
@@ -47,12 +44,10 @@ public class RabbitMqConfiguration {
                 .to(microservicesExchange());
     }
 
-
     @Bean
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
-
 
     @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
@@ -60,8 +55,6 @@ public class RabbitMqConfiguration {
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
         return rabbitTemplate;
     }
-
-
 
 
 }

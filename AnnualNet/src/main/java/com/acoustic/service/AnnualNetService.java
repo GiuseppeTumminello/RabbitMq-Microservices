@@ -60,7 +60,7 @@ public class AnnualNetService implements SalaryCalculatorService {
 
     @Override
     public void sendAnnualNet(AnnualNet annualNet) {
-        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(),rabbitMqSettings.getRoutingKeySalaryCalculator(), annualNet);
+        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(),this.rabbitMqSettings.getRoutingKeySalaryCalculator(), annualNet);
     }
 
 
