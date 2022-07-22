@@ -27,13 +27,10 @@ import static org.mockito.Mockito.verify;
 public class RabbitMqAnnualGrossTest {
     @Autowired
     private AnnualGrossController annualGrossController;
-
     @Autowired
     private RabbitListenerTestHarness harness;
-
     @Autowired
     private TestRabbitTemplate testRabbitTemplate;
-
     @Autowired
     private RabbitMqSettings rabbitMqSettings;
     @Autowired
@@ -46,7 +43,7 @@ public class RabbitMqAnnualGrossTest {
         assertNotNull(annualGrossController);
         var annualGrossData = AnnualGross.builder().description(this.salaryCalculatorService.getDescription()).amount(grossMonthlySalary).uuid(UUID.randomUUID()).build();
         this.testRabbitTemplate.convertAndSend(this.rabbitMqSettings.getQueueAnnualGross(), annualGrossData);
-        verify(this.annualGrossController).receivedMessage(annualGrossData);
+        verify(this.annualGrossController).receiveMessages(annualGrossData);
     }
 
 }

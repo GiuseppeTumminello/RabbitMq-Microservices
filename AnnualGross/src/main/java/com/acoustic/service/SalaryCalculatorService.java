@@ -11,7 +11,6 @@ import java.util.function.UnaryOperator;
 public interface SalaryCalculatorService extends UnaryOperator<BigDecimal> {
 
      String getDescription();
-
      void sendAnnualGross(AnnualGross annualGross);
 
 

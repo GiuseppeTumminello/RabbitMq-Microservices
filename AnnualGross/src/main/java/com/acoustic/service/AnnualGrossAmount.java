@@ -4,7 +4,6 @@ package com.acoustic.service;
 import com.acoustic.entity.AnnualGross;
 import com.acoustic.rabbitmqsettings.RabbitMqSettings;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +12,7 @@ import java.math.RoundingMode;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class AnnualGrossAmount implements SalaryCalculatorService {
-
-
     public static final int MONTHS_NUMBER = 12;
 
     private final RabbitTemplate rabbitTemplate;

@@ -37,7 +37,7 @@ public class AnnualGrossController {
 
 
     @RabbitListener(id = ANNUAL_GROSS_RECEIVER_ID, queues = "${rabbitmq.queueAnnualGross}")
-    public void receivedMessage(AnnualGross dataProducer) {
+    public void receiveMessages(AnnualGross dataProducer) {
         log.warn(dataProducer.getDescription() + " " + dataProducer.getAmount() + " " + dataProducer.getUuid() + " " + dataProducer.getId());
         sendAnnualGrossDataToSalaryCalculatorOrchestrator(dataProducer.getAmount(),dataProducer.getUuid());
 
@@ -45,7 +45,7 @@ public class AnnualGrossController {
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateAnnualGrossEndpoint(@PathVariable @Min(MINIMUM_GROSS)BigDecimal grossMonthlySalary){
+    public ResponseEntity<Map<String, String>> calculationAnnualGrossEndpoint(@PathVariable @Min(MINIMUM_GROSS)BigDecimal grossMonthlySalary){
         var annualGross = calculateAnnualGross(grossMonthlySalary);
         saveAnnualGross(annualGross, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualGross)));

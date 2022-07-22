@@ -21,5 +21,4 @@ public class SalaryCalculatorOrchestratorConfiguration {
         return new RestTemplate();
     }
 
-
 }

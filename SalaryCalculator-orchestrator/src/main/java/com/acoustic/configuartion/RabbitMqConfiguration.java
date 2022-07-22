@@ -13,32 +13,27 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @RequiredArgsConstructor
 public class RabbitMqConfiguration {
-
-    private final RabbitMqSettings rabbitMqValues;
-
-
+    private final RabbitMqSettings rabbitMqSettings;
     @Bean
     public Queue salaryCalculatorQueue(){
-        return new Queue(rabbitMqValues.getQueueSalaryCalculator(), true);
+        return new Queue(this.rabbitMqSettings.getQueueSalaryCalculator(), this.rabbitMqSettings.isDurable());
     }
-
     @Bean
     public Exchange salaryCalculatorExchange() {
-        return ExchangeBuilder.directExchange(rabbitMqValues.getExchangeSalaryCalculator()).durable(true).build();
+        return ExchangeBuilder.directExchange(this.rabbitMqSettings.getExchangeSalaryCalculator()).durable(this.rabbitMqSettings.isDurable()).build();
     }
 
     @Bean
     public Binding bindingSalaryCalculator() {
         return BindingBuilder
                 .bind(salaryCalculatorQueue())
-                .to(salaryCalculatorExchange()).with(rabbitMqValues.getRoutingKeySalaryCalculator()).noargs();
+                .to(salaryCalculatorExchange()).with(this.rabbitMqSettings.getRoutingKeySalaryCalculator()).noargs();
     }
 
     @Bean
-    public FanoutExchange myExchange() {
-        return ExchangeBuilder.fanoutExchange(rabbitMqValues.getExchange()).durable(true).build();
+    public FanoutExchange exchange() {
+        return ExchangeBuilder.fanoutExchange(this.rabbitMqSettings.getExchange()).durable(this.rabbitMqSettings.isDurable()).build();
     }
-
 
     @Bean
     public MessageConverter jsonMessageConverter() {

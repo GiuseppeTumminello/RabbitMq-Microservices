@@ -18,7 +18,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.util.NestedServletException;
 
 import java.math.BigDecimal;
-import java.util.concurrent.ExecutionException;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
@@ -31,7 +30,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @ActiveProfiles("test")
 public class SalaryCalculatorOrchestratorControllerPostTest {
-
 
     public static final String CALCULATOR_ENDPOINTS = "/salary-calculations/calculations/";
     public static final String DEPARTMENT_NAME_REQUEST_PARAM = "?departmentName=";
@@ -77,7 +75,6 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
 
     }
 
-
     @ParameterizedTest
     @CsvSource({"6000, finance, -10",
             "7000, it, -1000",
@@ -86,7 +83,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
             "12191.68, it, 30",
             "185891.68, finance, 40"})
     public void getSalaryCalculationIdOutOfBounds(
-            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws InterruptedException, ExecutionException {
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
         when(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, departmentName, jobTitleId)).thenThrow(new RuntimeException("Exception"));
@@ -101,7 +98,6 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
                                         average)))));
 
     }
-
 
     @ParameterizedTest
     @CsvSource({"6000, fff, 1",
@@ -111,7 +107,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
             "12191.68, rest, 2",
             "185891.68, finances, 3"})
     public void getSalaryCalculationWrongDepartmentName(
-            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws InterruptedException, ExecutionException {
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
         when(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, departmentName, jobTitleId)).thenThrow(new RuntimeException("Exception"));
@@ -126,7 +122,6 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
                                         average)))));
     }
 
-
     @ParameterizedTest
     @CsvSource({"-6000, finance, 1",
             "-7000, it, 1",
@@ -135,7 +130,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
             "1999.9999, it, 2",
             "0, finance, 3"})
     public void getSalaryCalculationGrossBelowTrashHold(
-            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws InterruptedException, ExecutionException {
+            BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
         when(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, departmentName, jobTitleId)).thenThrow(new RuntimeException("Exception"));

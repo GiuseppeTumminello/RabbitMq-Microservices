@@ -14,14 +14,10 @@ import org.springframework.context.annotation.PropertySource;
 @ConfigurationProperties(prefix = "rabbitmq")
 public class RabbitMqSettings {
 
-    private String queueAnnualGross;
-    private String queueAnnualNet;
     private String exchange;
+    private String routingKey;
     private boolean durable;
-//    private String exchangeProducers;
-//    private String routingKeyProducers;
-//    private String queueProducers;
-
+    private String receiverId;
     private String queueSalaryCalculator;
     private String routingKeySalaryCalculator;
     private String exchangeSalaryCalculator;

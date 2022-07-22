@@ -1,6 +1,6 @@
 package com.acoustic.repository;
 
-import com.acoustic.model.MicroservicesData;
+import com.acoustic.entity.MicroservicesData;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
