@@ -27,13 +27,10 @@ import static org.mockito.Mockito.verify;
 public class RabbitMqMonthlyGrossTest {
     @Autowired
     private MonthlyGrossController monthlyGrossController;
-
     @Autowired
     private RabbitListenerTestHarness harness;
-
     @Autowired
     private TestRabbitTemplate testRabbitTemplate;
-
     @Autowired
     private RabbitMqSettings rabbitMqSettings;
     @Autowired
@@ -43,10 +40,10 @@ public class RabbitMqMonthlyGrossTest {
     @CsvSource({"6000", "7000", "8555", "15143.99"})
     public void receiveMessageTest(BigDecimal grossMonthlySalary) {
         this.monthlyGrossController = this.harness.getSpy(this.rabbitMqSettings.getReceiverId());
-        assertNotNull(monthlyGrossController);
+        assertNotNull(this.monthlyGrossController);
         var monthlyGrossData = MonthlyGross.builder().description(this.salaryCalculatorService.getDescription()).amount(grossMonthlySalary).uuid(UUID.randomUUID()).build();
         this.testRabbitTemplate.convertAndSend(this.rabbitMqSettings.getQueueMonthlyGross(), monthlyGrossData);
-        verify(this.monthlyGrossController).receivedMessage(monthlyGrossData);
+        verify(this.monthlyGrossController).receiveMessage(monthlyGrossData);
     }
 
 }

@@ -27,14 +27,13 @@ import java.util.UUID;
 public class DisabilityZusController {
 
     public static final int MINIMUM_GROSS = 2000;
-
     private static final String DISABILITY_ZUS_RECEIVER_ID = "disabilityZusReceiverId";
     private final DisabilityZusRepository disabilityZusRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 
 
     @RabbitListener(id = DISABILITY_ZUS_RECEIVER_ID,queues = "${rabbitmq.queueDisabilityZus}")
-    public void receivedMessage(DisabilityZus disabilityZus) {
+    public void receiveMessage(DisabilityZus disabilityZus) {
         log.warn(disabilityZus.getUuid().toString());
         sendDisabilityZusDataToSalaryCalculatorOrchestrator(disabilityZus.getAmount(), disabilityZus.getUuid());
 
@@ -42,23 +41,23 @@ public class DisabilityZusController {
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateDisabilityZusEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
-        var annualNet = calculateAnnualGross(grossMonthlySalary);
-        saveAnnualGross(annualNet, UUID.randomUUID());
-        return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualNet)));
+    public ResponseEntity<Map<String, String>> calculationDisabilityZusEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
+        var disabilityZus = calculateDisabilityZus(grossMonthlySalary);
+        saveDisabilityZus(disabilityZus, UUID.randomUUID());
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(disabilityZus)));
     }
 
     private void sendDisabilityZusDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
-        var disabilityZus = calculateAnnualGross(grossMonthlySalary);
-        var disabilityZusData = saveAnnualGross(disabilityZus, uuid);
+        var disabilityZus = calculateDisabilityZus(grossMonthlySalary);
+        var disabilityZusData = saveDisabilityZus(disabilityZus, uuid);
         this.salaryCalculatorService.sendDisabilityZus(disabilityZusData);
     }
 
-    private DisabilityZus saveAnnualGross(BigDecimal disabilityZus, UUID uuid) {
+    private DisabilityZus saveDisabilityZus(BigDecimal disabilityZus, UUID uuid) {
         return this.disabilityZusRepository.saveAndFlush(DisabilityZus.builder().description(this.salaryCalculatorService.getDescription()).amount(disabilityZus).uuid(uuid).build());
     }
 
-    private BigDecimal calculateAnnualGross(BigDecimal grossMonthlySalary) {
+    private BigDecimal calculateDisabilityZus(BigDecimal grossMonthlySalary) {
         return this.salaryCalculatorService.apply(grossMonthlySalary);
     }
 }

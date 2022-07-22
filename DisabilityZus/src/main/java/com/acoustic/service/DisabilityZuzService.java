@@ -13,9 +13,7 @@ import java.math.RoundingMode;
 @Service
 @RequiredArgsConstructor
 public class DisabilityZuzService implements SalaryCalculatorService{
-
     private final RatesConfigurationProperties ratesConfigurationProperties;
-
     private final RabbitTemplate rabbitTemplate;
 
     private final RabbitMqSettings rabbitMqSettings;
@@ -33,6 +31,6 @@ public class DisabilityZuzService implements SalaryCalculatorService{
 
     @Override
     public BigDecimal apply(final BigDecimal grossMonthlySalary) {
-        return grossMonthlySalary.multiply(ratesConfigurationProperties.getDisabilityZusRate()).setScale(2, RoundingMode.HALF_EVEN);
+        return grossMonthlySalary.multiply(this.ratesConfigurationProperties.getDisabilityZusRate()).setScale(2, RoundingMode.HALF_EVEN);
     }
 }

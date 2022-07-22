@@ -23,7 +23,6 @@ import java.util.UUID;
 @Slf4j
 public class MonthlyNetController {
 
-
     public static final int MINIMUM_GROSS = 2000;
     private final MonthlyNetRepository monthlyNetRepository;
     private final SalaryCalculatorService salaryCalculatorService;
@@ -33,7 +32,7 @@ public class MonthlyNetController {
 
 
     @RabbitListener(id = MONTHLY_NET_RECEIVER_ID, queues = "${rabbitmq.queueMonthlyNet}")
-    public void receivedMessage(MonthlyNet monthlyNet) {
+    public void receiveMessage(MonthlyNet monthlyNet) {
         log.warn(monthlyNet.getUuid().toString());
         sendMonthlyNetDataToSalaryCalculatorOrchestrator(monthlyNet.getAmount(), monthlyNet.getUuid());
 
@@ -41,7 +40,7 @@ public class MonthlyNetController {
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateMonthlyNetEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
+    public ResponseEntity<Map<String, String>> calculationMonthlyNetEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
         var annualNet = calculateMonthlyData(grossMonthlySalary);
         saveMonthlyData(annualNet, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualNet)));

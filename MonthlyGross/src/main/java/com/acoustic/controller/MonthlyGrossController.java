@@ -35,7 +35,7 @@ public class MonthlyGrossController {
 
 
     @RabbitListener(id = MONTHLY_GROSS_RECEIVER_ID, queues = "${rabbitmq.queueMonthlyGross}")
-    public void receivedMessage(MonthlyGross monthlyGross) {
+    public void receiveMessage(MonthlyGross monthlyGross) {
         log.warn(monthlyGross.getUuid().toString());
         sendMonthlyGrossDataToSalaryCalculatorOrchestrator(monthlyGross.getAmount(), monthlyGross.getUuid());
 
@@ -43,7 +43,7 @@ public class MonthlyGrossController {
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateMonthlyGrossEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
+    public ResponseEntity<Map<String, String>> calculationMonthlyGrossEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
         var annualNet = calculateMonthlyGross(grossMonthlySalary);
         saveMonthlyGross(annualNet, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualNet)));

@@ -47,7 +47,7 @@ public class RabbitTestConfiguration {
     @Bean
     public TestRabbitTemplate testRabbitTemplate(ConnectionFactory connectionFactory) {
         final TestRabbitTemplate rabbitTemplate = new TestRabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(rabbitTestConfiguration.jsonMessageConverter());
+        rabbitTemplate.setMessageConverter(this.rabbitTestConfiguration.jsonMessageConverter());
         return rabbitTemplate;
     }
 

@@ -22,11 +22,8 @@ public class Health {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String description;
-
     private BigDecimal amount;
-
     private UUID uuid;
 
 }

@@ -23,16 +23,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
 class DisabilityZusControllerTest {
-
     public static final String DISABILITY_ZUS_DESCRIPTION = "Disability zus";
     private final String DISABILITY_ZUS_ENDPOINT = "/disability-zus/calculation/";
     @Autowired
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper;
-
-
-
 
     @ParameterizedTest
     @CsvSource({"6000, 90.00", "7000, 105.00", "8555,128.32", "15143.99,227.16"})

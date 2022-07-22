@@ -18,22 +18,22 @@ public class RabbitMqConfiguration {
 
     @Bean
     public Queue monthlyNetQueue() {
-        return new Queue(rabbitMqSettings.getQueueMonthlyNet(), rabbitMqSettings.isDurable());
+        return new Queue(this.rabbitMqSettings.getQueueMonthlyNet(), this.rabbitMqSettings.isDurable());
     }
 
     @Bean
     public Queue salaryCalculatorOrchestratorQueue(){
-        return new Queue(rabbitMqSettings.getQueueSalaryCalculator(), rabbitMqSettings.isDurable());
+        return new Queue(this.rabbitMqSettings.getQueueSalaryCalculator(), this.rabbitMqSettings.isDurable());
     }
 
     @Bean
     public Exchange salaryCalculatorOrchestratorExchange() {
-        return ExchangeBuilder.directExchange(rabbitMqSettings.getExchangeSalaryCalculator()).durable(rabbitMqSettings.isDurable()).build();
+        return ExchangeBuilder.directExchange(this.rabbitMqSettings.getExchangeSalaryCalculator()).durable(this.rabbitMqSettings.isDurable()).build();
     }
 
     @Bean
     public FanoutExchange microservicesExchange() {
-        return ExchangeBuilder.fanoutExchange(rabbitMqSettings.getExchange()).durable(rabbitMqSettings.isDurable()).build();
+        return ExchangeBuilder.fanoutExchange(this.rabbitMqSettings.getExchange()).durable(this.rabbitMqSettings.isDurable()).build();
     }
 
     @Bean
@@ -42,8 +42,6 @@ public class RabbitMqConfiguration {
                 .bind(monthlyNetQueue())
                 .to(microservicesExchange());
     }
-
-
 
     @Bean
     public MessageConverter jsonMessageConverter() {

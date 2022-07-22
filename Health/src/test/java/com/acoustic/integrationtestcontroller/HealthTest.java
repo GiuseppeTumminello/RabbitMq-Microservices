@@ -23,15 +23,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
 class HealthTest {
-
     public static final String HEALTH_ZUS_DESCRIPTION = "Health";
     @Autowired
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper;
-
     private final String HEALTH_ENDPOINT = "/health/calculation/";
-
 
     @ParameterizedTest
     @CsvSource({"6000,465.97", "7000, 543.63", "8555,664.39", "15143.99,1176.10"})

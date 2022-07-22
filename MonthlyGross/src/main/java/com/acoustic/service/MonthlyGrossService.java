@@ -11,7 +11,7 @@ import java.math.RoundingMode;
 
 @Service
 @RequiredArgsConstructor
-public class MonthlyGrossService implements SalaryCalculatorService{
+public class MonthlyGrossService implements SalaryCalculatorService {
 
     private final RabbitTemplate rabbitTemplate;
     private final RabbitMqSettings rabbitMqSettings;
@@ -24,7 +24,7 @@ public class MonthlyGrossService implements SalaryCalculatorService{
 
     @Override
     public void sendMonthlyGross(MonthlyGross monthlyGross) {
-        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(),rabbitMqSettings.getRoutingKeySalaryCalculator(), monthlyGross);
+        this.rabbitTemplate.convertAndSend(this.rabbitMqSettings.getExchangeSalaryCalculator(), this.rabbitMqSettings.getRoutingKeySalaryCalculator(), monthlyGross);
     }
 
     @Override

@@ -32,7 +32,7 @@ public class HealthController {
 
 
     @RabbitListener(id = HEALTH_RECEIVER_ID,queues = "${rabbitmq.queueHealth}")
-    public void receivedMessage(Health health) {
+    public void receiveMessage(Health health) {
         log.warn(health.getUuid().toString());
         sendHealthDataToSalaryCalculatorOrchestrator(health.getAmount(), health.getUuid());
 
@@ -40,7 +40,7 @@ public class HealthController {
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateHealthEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
+    public ResponseEntity<Map<String, String>> calculationHealthEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
         var health = calculateHealth(grossMonthlySalary);
         saveHealth(health, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(health)));

@@ -46,7 +46,7 @@ public class RabbitMqMonthlyNetTest {
         assertNotNull(monthlyNetZusController);
         var monthlyNetData = MonthlyNet.builder().description(this.salaryCalculatorService.getDescription()).amount(grossMonthlySalary).uuid(UUID.randomUUID()).build();
         this.testRabbitTemplate.convertAndSend(this.rabbitMqSettings.getQueueMonthlyNet(), monthlyNetData);
-        verify(this.monthlyNetZusController).receivedMessage(monthlyNetData);
+        verify(this.monthlyNetZusController).receiveMessage(monthlyNetData);
     }
 
 }
