@@ -1,9 +1,9 @@
 package com.acoustic.controller;
 
 
+import com.acoustic.entity.MicroservicesData;
 import com.acoustic.entity.SalaryCalculatorOrchestratorData;
 import com.acoustic.jobcategories.JobCategoriesConfigurationProperties;
-import com.acoustic.entity.MicroservicesData;
 import com.acoustic.rabbitmqsettings.RabbitMqSettings;
 import com.acoustic.repository.DataProducerRepository;
 import com.acoustic.repository.DataSalaryCalculatorRepository;
@@ -11,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,22 +46,23 @@ public class SalaryCalculatorOrchestratorController {
 
 
     @GetMapping("/jobs/{departmentName}")
-    public List<String> getJobTitles(@PathVariable String departmentName) {
-        return this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().get(departmentName);
+    public ResponseEntity<List<String>> getJobTitles(@PathVariable String departmentName) {
+        return ResponseEntity.status(HttpStatus.OK).body(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().get(departmentName));
     }
 
     @GetMapping("/departments")
-    public Set<String> getDepartmentName() {
-        return this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().keySet();
+    public ResponseEntity<Set<String>> getDepartmentName() {
+        return ResponseEntity.status(HttpStatus.OK).body(this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().keySet());
+
     }
 
     @PostMapping("/calculations/{grossMonthlySalary}")
-    public Map<String, BigDecimal> calculateSalary(@PathVariable @Min(value = MINIMUM_GROSS, message = "Must be Greater than or equal to 2000.00") @NotNull BigDecimal grossMonthlySalary, @RequestParam(required = false) String departmentName, @RequestParam(required = false) Integer jobTitleId) {
+    public ResponseEntity<Map<String, BigDecimal>> calculateSalary(@PathVariable @Min(value = MINIMUM_GROSS, message = "Must be Greater than or equal to 2000.00") @NotNull BigDecimal grossMonthlySalary, @RequestParam(required = false) String departmentName, @RequestParam(required = false) Integer jobTitleId) {
         var uuid = UUID.randomUUID();
         getCalculationFromMicroservices(grossMonthlySalary, uuid);
         var response = collectMicroservicesResponse(uuid);
         if (departmentName == null || jobTitleId == null) {
-            return response;
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         }
         List<String> jobTitlesList = this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().get(departmentName);
         if (!this.jobCategoriesConfigurationProperties.getJobDepartmentAndTitles().containsKey(departmentName.toLowerCase())) {
@@ -68,8 +71,9 @@ public class SalaryCalculatorOrchestratorController {
         if (jobTitleId > jobTitlesList.size() || jobTitleId <= 0) {
             throw new IllegalArgumentException("Wrong job id");
         }
-        return getAverage(grossMonthlySalary, jobTitlesList.get(jobTitleId - 1), response);
+        return ResponseEntity.status(HttpStatus.OK).body(getAverage(grossMonthlySalary, jobTitlesList.get(jobTitleId - 1), response));
     }
+
     public Map<String, BigDecimal> collectMicroservicesResponse(UUID uuid) {
         Map<String, BigDecimal> response = new HashMap<>();
         List<MicroservicesData> data = new ArrayList<>();

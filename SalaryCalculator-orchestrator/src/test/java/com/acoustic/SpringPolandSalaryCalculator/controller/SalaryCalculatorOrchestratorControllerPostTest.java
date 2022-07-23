@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -63,7 +65,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
     public void getSalaryCalculation(BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws Exception {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
-        given(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, departmentName, jobTitleId)).willReturn(this.salaryCalculatorResponse.expectedValue(grossMonthlySalary, average));
+        given(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, departmentName, jobTitleId)).willReturn(ResponseEntity.status(HttpStatus.OK).body(this.salaryCalculatorResponse.expectedValue(grossMonthlySalary, average)));
         this.mockMvc.perform(post(
                         CALCULATOR_ENDPOINTS + grossMonthlySalary + DEPARTMENT_NAME_REQUEST_PARAM + departmentName +
                                 JOB_TITLE_ID_REQUEST_PARAM + jobTitleId))
@@ -153,7 +155,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
         String department = null;
         Integer jobId = null;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
-        given(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, department, jobId)).willReturn(this.salaryCalculatorResponse.expectedValue(grossMonthlySalary, average));
+        given(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, department, jobId)).willReturn(ResponseEntity.status(HttpStatus.OK).body(this.salaryCalculatorResponse.expectedValue(grossMonthlySalary, average)));
         this.mockMvc.perform(post(CALCULATOR_ENDPOINTS + grossMonthlySalary))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
