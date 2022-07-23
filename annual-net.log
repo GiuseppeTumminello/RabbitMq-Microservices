@@ -2751,3 +2751,132 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
 
 2022-07-23 09:35:18.975  INFO 1744 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-07-23 17:42:06.556  INFO 1535 --- [restartedMain] com.acoustic.AnnualNetApplication        : Starting AnnualNetApplication using Java 11.0.15 on Giuseppes-MBP with PID 1535 (/Users/giuseppetumminello/Desktop/JavaTraining/RabbitMq-Microservices/AnnualNet/build/classes/java/main started by giuseppetumminello in /Users/giuseppetumminello/Desktop/JavaTraining/RabbitMq-Microservices)
+2022-07-23 17:42:06.558  INFO 1535 --- [restartedMain] com.acoustic.AnnualNetApplication        : No active profile set, falling back to 1 default profile: "default"
+2022-07-23 17:42:06.588  INFO 1535 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-07-23 17:42:06.588  INFO 1535 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-07-23 17:42:07.483  INFO 1535 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-23 17:42:07.531  INFO 1535 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 1 JPA repository interfaces.
+2022-07-23 17:42:07.742  INFO 1535 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=aa466e2e-6f6a-3ed4-ad4b-dab5d02b50e8
+2022-07-23 17:42:07.890  INFO 1535 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-23 17:42:07.891  INFO 1535 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-23 17:42:07.893  INFO 1535 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-23 17:42:08.236  INFO 1535 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
+2022-07-23 17:42:08.243  INFO 1535 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-23 17:42:08.243  INFO 1535 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-07-23 17:42:08.317  INFO 1535 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-23 17:42:08.317  INFO 1535 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1728 ms
+2022-07-23 17:42:08.402  INFO 1535 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-23 17:42:08.528  INFO 1535 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-23 17:42:08.537  INFO 1535 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://192.168.99.105:5432/'
+2022-07-23 17:42:08.635  INFO 1535 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-23 17:42:08.665  INFO 1535 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-23 17:42:08.785  INFO 1535 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-23 17:42:08.866  INFO 1535 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-07-23 17:42:09.301  INFO 1535 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-23 17:42:09.310  INFO 1535 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-23 17:42:09.797  WARN 1535 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-23 17:42:10.583  WARN 1535 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-07-23 17:42:10.595  INFO 1535 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-07-23 17:42:10.649  WARN 1535 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-07-23 17:42:10.654  INFO 1535 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/annual-net/actuator'
+2022-07-23 17:42:10.776  INFO 1535 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-07-23 17:42:10.800  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-07-23 17:42:10.803  INFO 1535 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 17:42:10.817  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-07-23 17:42:10.817  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-07-23 17:42:10.817  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-07-23 17:42:10.818  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-07-23 17:42:10.818  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-07-23 17:42:10.818  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-07-23 17:42:10.818  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-07-23 17:42:10.999  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-07-23 17:42:11.001  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-07-23 17:42:11.002  INFO 1535 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-07-23 17:42:11.006  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1658590931005 with initial instances count: 3
+2022-07-23 17:42:11.008  INFO 1535 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ANNUAL-NET with eureka with status UP
+2022-07-23 17:42:11.008  INFO 1535 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1658590931008, current=UP, previous=STARTING]
+2022-07-23 17:42:11.009  INFO 1535 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ANNUAL-NET/giuseppes-mbp:annual-net:8093: registering service...
+2022-07-23 17:42:11.034  INFO 1535 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path ''
+2022-07-23 17:42:11.035  INFO 1535 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8093
+2022-07-23 17:42:11.039  INFO 1535 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ANNUAL-NET/giuseppes-mbp:annual-net:8093 - registration status: 204
+2022-07-23 17:42:11.040  INFO 1535 --- [restartedMain] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [192.168.99.105:5672]
+2022-07-23 17:42:11.070  INFO 1535 --- [restartedMain] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#6f525fcf:0/SimpleConnection@1ea119b7 [delegate=amqp://guest@192.168.99.105:5672/, localPort= 60181]
+2022-07-23 17:42:11.141  INFO 1535 --- [restartedMain] com.acoustic.AnnualNetApplication        : Started AnnualNetApplication in 4.892 seconds (JVM running for 5.469)
+2022-07-23 17:42:11.146  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 596b2bde-ae6b-438d-9135-9eaecb8c4f89
+2022-07-23 17:42:11.270  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 7f29169e-f8ee-499c-994e-a75df60edf5f
+2022-07-23 17:42:11.274  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 15394bb5-d5ea-4274-94a1-9bd9f878c7f5
+2022-07-23 17:42:11.278  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 013a2298-07b7-4126-991f-257bf902e3a4
+2022-07-23 17:42:11.281  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 18746b29-d0f3-4a27-a10b-6df3a5f9d003
+2022-07-23 17:42:11.284  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 43c60167-224c-4f6c-987a-26916320f367
+2022-07-23 17:42:11.287  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : cfb97823-7802-4abd-ba36-364f80c77709
+2022-07-23 17:42:11.291  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 742d9ae6-4e62-43af-80cb-0564c9655bb6
+2022-07-23 17:42:11.294  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : b8f09bf2-92a7-46e2-87c9-2849574cf02a
+2022-07-23 17:42:11.297  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 00b4e097-6a1e-4008-b434-19e0c2ae7144
+2022-07-23 17:42:11.300  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 5fda5535-ab6f-4e1f-b795-7723b045f400
+2022-07-23 17:42:11.303  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : e7e184d7-d453-4090-a895-436a1e9fddab
+2022-07-23 17:42:11.319  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 364c8f02-4afc-4351-ab83-0611ae3d829a
+2022-07-23 17:42:11.322  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 3a491b4c-c850-4361-8b26-451ac6b24717
+2022-07-23 17:42:11.326  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 2411f10d-628f-4cf3-8f14-5f5bcdd74d20
+2022-07-23 17:42:11.334  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 56ce5dd2-77d7-453b-b8fa-cc9a98631c61
+2022-07-23 17:42:11.340  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 865adfe3-28fc-4ee6-8b92-1e32542bd663
+2022-07-23 17:42:11.344  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 8e8ccb35-7c8b-4caa-90f6-bade1a38fe32
+2022-07-23 17:42:11.348  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 0e3d51a1-621d-4591-ae48-f92941b0cf10
+2022-07-23 17:42:11.352  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : e7ee8296-0220-41d9-8281-533cccec8de5
+2022-07-23 17:42:11.370  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : f05cef0c-58c5-407b-993d-332e4a1cc12d
+2022-07-23 17:42:11.374  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 0677fd37-680c-41b1-b730-d222f581b26a
+2022-07-23 17:42:11.377  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 466833f4-70cb-4142-8303-b1e7b3f106f1
+2022-07-23 17:42:11.381  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : c4121851-2794-4112-b3ab-4536a2332b2c
+2022-07-23 17:42:11.386  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : d777baf5-9623-410a-9405-33a1c6e67861
+2022-07-23 17:42:11.389  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 95918ddd-718d-4178-8f9b-7ec474ba50dd
+2022-07-23 17:42:11.393  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 9bcf48eb-7e23-47cc-bd34-649ff7e74c92
+2022-07-23 17:42:11.396  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : f532adec-22bb-43e0-a666-021ffca8b4d3
+2022-07-23 17:42:11.400  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 6b15e880-97ba-4d46-b336-8e0f32e805e1
+2022-07-23 17:42:11.417  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 8583784c-9432-4f1e-9c57-ab312c0112b7
+2022-07-23 17:42:11.420  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : b2594371-0fe5-4cf7-88b1-3898162df436
+2022-07-23 17:42:11.423  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : ecf99677-6355-46af-9aa9-727d832cd7e1
+2022-07-23 17:42:11.426  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 180d4d84-e005-48c0-a5ab-515f577f1d2d
+2022-07-23 17:42:11.429  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : d053ef9b-b51e-4dfc-87be-543b00e5ac89
+2022-07-23 17:42:11.433  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : dea1e0e0-887f-4868-aee9-87aa81b428ac
+2022-07-23 17:42:11.436  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : d7565bd1-70b7-49da-a530-3c2664c5e792
+2022-07-23 17:42:11.439  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 1363d339-ceab-4b76-b062-a6cb7a182307
+2022-07-23 17:42:11.442  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 76bb0653-5582-4cef-93fb-2df4c771615d
+2022-07-23 17:42:11.445  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 85e00d45-92ee-45bc-adb3-a175509eff3e
+2022-07-23 17:42:11.448  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 7d2e0f39-a983-46f9-a0d6-cd9a34bb7720
+2022-07-23 17:42:11.451  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 48c58707-319a-485f-ba6b-2124d1911c58
+2022-07-23 17:42:11.468  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 7b015fa1-1f8e-463f-b593-9f633ed8937b
+2022-07-23 17:42:11.471  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 891b24e2-7755-4a68-87c2-66e69e5923dd
+2022-07-23 17:42:11.474  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 1397af51-5e24-4810-939b-54f6b5e40c83
+2022-07-23 17:42:11.476  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : a508a68c-d186-42c4-9bb3-eba34575068e
+2022-07-23 17:42:11.479  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 90c731cf-f6f5-4be4-9490-b55941102be2
+2022-07-23 17:42:11.482  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 7049b73c-9195-459f-b311-e971ab186bc8
+2022-07-23 17:42:11.484  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 50dcf564-aa76-427f-be78-33869fa1cb1d
+2022-07-23 17:42:11.487  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : badacd2f-2a00-45d7-946f-6656e32320bb
+2022-07-23 17:42:11.489  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : e649ae79-0dbb-4449-b581-da856dcf93c3
+2022-07-23 17:42:11.492  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 83d8b42d-514a-4093-9188-f1d4f2c34883
+2022-07-23 17:42:11.496  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 8d4b3cd6-9096-4d01-8cc3-8e6376100075
+2022-07-23 17:42:11.499  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : ffb115a8-029a-4b46-a230-c03ac263e6bc
+2022-07-23 17:42:11.502  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 4d949dc2-96cb-4529-bbce-1edb53a3ac5f
+2022-07-23 17:42:11.518  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : a1a82749-3b13-4e0b-b806-0c80570a3a51
+2022-07-23 17:42:11.521  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 09989bc8-75f7-4716-89bd-d7e1239cb235
+2022-07-23 17:42:11.524  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : f7cdb9ff-4134-4b02-9c78-125f3ded7607
+2022-07-23 17:42:11.526  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 35d7faef-ba74-496e-9618-840c07278427
+2022-07-23 17:42:11.528  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 0fc6a7a6-4bdf-4b51-84af-292f486533a5
+2022-07-23 17:42:11.531  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : b4a1efd3-c687-4947-bae3-68bf82361617
+2022-07-23 17:42:11.533  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 24068145-9b63-43f1-840d-6c4081cd5e41
+2022-07-23 17:42:11.535  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : bbe18424-3778-452a-9a22-d987fc2f316d
+2022-07-23 17:42:11.538  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : febf7e7c-b194-4ce9-9b6c-68feb675d9dc
+2022-07-23 17:42:11.541  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 1f116c53-a6ab-40d9-a8f9-7ec4f869ada8
+2022-07-23 17:42:11.544  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 3de02d33-e772-421c-8a41-e7508d18509b
+2022-07-23 17:42:11.547  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : ff9625bf-d2ce-4cf6-bb80-c5268092912b
+2022-07-23 17:42:11.550  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : ae61f12a-1519-402b-9f7a-64dc775cd736
+2022-07-23 17:42:11.596  INFO 1535 --- [RMI TCP Connection(3)-192.168.100.158] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-23 17:42:11.596  INFO 1535 --- [RMI TCP Connection(3)-192.168.100.158] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-23 17:42:11.598  INFO 1535 --- [RMI TCP Connection(3)-192.168.100.158] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-07-23 17:43:32.632  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 18e25622-2221-4919-9908-37e091706386
+2022-07-23 17:43:59.179  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : e5fa63c9-0175-4c46-b53a-470c6be9c964
+2022-07-23 17:44:18.089  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : be5a19a9-b6a8-4af6-968a-386cc52c68da
+2022-07-23 17:45:25.621  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : 714c19af-8c44-40a2-9f03-234a919a2a46
+2022-07-23 17:47:10.805  INFO 1535 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 17:48:54.496  INFO 1535 --- [http-nio-8093-exec-5] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 139 ms
+2022-07-23 17:49:24.338  WARN 1535 --- [AnnualNetReceiverId-1] c.a.controller.AnnualNetController       : b1e87e98-49f3-4d64-8ca3-0e6b80ea0b42

@@ -171,3 +171,6 @@ java.lang.IllegalArgumentException: Wrong job id
 2022-07-23 17:40:42.686  INFO 1342 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SALARY-CALCULATOR/giuseppes-mbp:salary-calculator:8096 - Re-registering apps/SALARY-CALCULATOR
 2022-07-23 17:40:42.687  INFO 1342 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SALARY-CALCULATOR/giuseppes-mbp:salary-calculator:8096: registering service...
 2022-07-23 17:40:42.693  INFO 1342 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SALARY-CALCULATOR/giuseppes-mbp:salary-calculator:8096 - registration status: 204
+2022-07-23 17:42:12.244  INFO 1342 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 17:43:18.966  INFO 1342 --- [http-nio-8096-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 207 ms
+2022-07-23 17:47:12.232  INFO 1342 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
