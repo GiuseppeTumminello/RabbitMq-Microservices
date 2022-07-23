@@ -4,6 +4,17 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
     testImplementation 'org.springframework.amqp:spring-rabbit-test'
+    implementation 'de.codecentric:spring-boot-admin-starter-client'
+}
+
+ext {
+    set('springBootAdminVersion', "2.7.1")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
+    }
 }
 
 test {
