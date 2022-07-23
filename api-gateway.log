@@ -1,0 +1,640 @@
+2022-07-23 17:14:32.544  INFO 1290 --- [restartedMain] c.a.apigateway.ApiGatewayApplication     : Starting ApiGatewayApplication using Java 11.0.15 on Giuseppes-MBP with PID 1290 (/Users/giuseppetumminello/Desktop/JavaTraining/RabbitMq-Microservices/Api-gateway/build/classes/java/main started by giuseppetumminello in /Users/giuseppetumminello/Desktop/JavaTraining/RabbitMq-Microservices)
+2022-07-23 17:14:32.545  INFO 1290 --- [restartedMain] c.a.apigateway.ApiGatewayApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-07-23 17:14:32.577  INFO 1290 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-07-23 17:14:32.577  INFO 1290 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-07-23 17:14:33.262 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayReactiveLoadBalancerClientAutoConfiguration#gatewayLoadBalancerClientFilter matched
+2022-07-23 17:14:33.265 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayReactiveLoadBalancerClientAutoConfiguration#loadBalancerServiceInstanceCookieFilter matched
+2022-07-23 17:14:33.270 TRACE 1290 --- [restartedMain] Configuration$OnVerboseDisabledCondition : Condition GatewayAutoConfiguration.OnVerboseDisabledCondition on org.springframework.cloud.gateway.config.GatewayAutoConfiguration$GatewayActuatorConfiguration#gatewayLegacyControllerEndpoint did not match due to NoneNestedConditions 1 matched 0 did not; NestedCondition on GatewayAutoConfiguration.OnVerboseDisabledCondition.VerboseDisabled @ConditionalOnProperty (spring.cloud.gateway.actuator.verbose.enabled) matched
+2022-07-23 17:14:33.276 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration$NettyConfiguration#routingFilter matched
+2022-07-23 17:14:33.276 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration$NettyConfiguration#nettyWriteResponseFilter matched
+2022-07-23 17:14:33.277 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration$NettyConfiguration#reactorNettyWebSocketClient matched
+2022-07-23 17:14:33.277 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration$NettyConfiguration#reactorNettyRequestUpgradeStrategy matched
+2022-07-23 17:14:33.311 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#adaptCachedBodyGlobalFilter matched
+2022-07-23 17:14:33.311 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#removeCachedBodyFilter matched
+2022-07-23 17:14:33.312 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#routeToRequestUrlFilter matched
+2022-07-23 17:14:33.312 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#forwardRoutingFilter matched
+2022-07-23 17:14:33.312 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#forwardPathFilter matched
+2022-07-23 17:14:33.312 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#webSocketService matched
+2022-07-23 17:14:33.313 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledGlobalFilter        : Condition OnEnabledGlobalFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#websocketRoutingFilter matched
+2022-07-23 17:14:33.313 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#weightCalculatorWebFilter matched
+2022-07-23 17:14:33.313 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#afterRoutePredicateFactory matched
+2022-07-23 17:14:33.314 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#beforeRoutePredicateFactory matched
+2022-07-23 17:14:33.314 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#betweenRoutePredicateFactory matched
+2022-07-23 17:14:33.314 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#cookieRoutePredicateFactory matched
+2022-07-23 17:14:33.314 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#headerRoutePredicateFactory matched
+2022-07-23 17:14:33.315 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#hostRoutePredicateFactory matched
+2022-07-23 17:14:33.315 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#methodRoutePredicateFactory matched
+2022-07-23 17:14:33.315 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#pathRoutePredicateFactory matched
+2022-07-23 17:14:33.315 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#queryRoutePredicateFactory matched
+2022-07-23 17:14:33.316 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#readBodyPredicateFactory matched
+2022-07-23 17:14:33.316 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#remoteAddrRoutePredicateFactory matched
+2022-07-23 17:14:33.316 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#xForwardedRemoteAddrRoutePredicateFactory matched
+2022-07-23 17:14:33.316 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#weightRoutePredicateFactory matched
+2022-07-23 17:14:33.317 TRACE 1290 --- [restartedMain] o.s.c.g.c.c.OnEnabledPredicate           : Condition OnEnabledPredicate on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#cloudFoundryRouteServiceRoutePredicateFactory matched
+2022-07-23 17:14:33.317 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#addRequestHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.318 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#mapRequestHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.318 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#addRequestParameterGatewayFilterFactory matched
+2022-07-23 17:14:33.318 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#addResponseHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.319 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#modifyRequestBodyGatewayFilterFactory matched
+2022-07-23 17:14:33.319 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#dedupeResponseHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.319 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#modifyResponseBodyGatewayFilterFactory matched
+2022-07-23 17:14:33.320 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#cacheRequestBodyGatewayFilterFactory matched
+2022-07-23 17:14:33.320 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#prefixPathGatewayFilterFactory matched
+2022-07-23 17:14:33.320 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#preserveHostHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.320 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#redirectToGatewayFilterFactory matched
+2022-07-23 17:14:33.321 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#removeRequestHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.321 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#removeRequestParameterGatewayFilterFactory matched
+2022-07-23 17:14:33.321 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#removeResponseHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.327 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#rewritePathGatewayFilterFactory matched
+2022-07-23 17:14:33.328 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#retryGatewayFilterFactory matched
+2022-07-23 17:14:33.328 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#setPathGatewayFilterFactory matched
+2022-07-23 17:14:33.328 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#secureHeadersGatewayFilterFactory matched
+2022-07-23 17:14:33.329 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#setRequestHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.329 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#setRequestHostHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.329 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#setResponseHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.330 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#rewriteResponseHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.330 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#rewriteLocationResponseHeaderGatewayFilterFactory matched
+2022-07-23 17:14:33.330 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#setStatusGatewayFilterFactory matched
+2022-07-23 17:14:33.330 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#saveSessionGatewayFilterFactory matched
+2022-07-23 17:14:33.336 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#stripPrefixGatewayFilterFactory matched
+2022-07-23 17:14:33.337 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#requestHeaderToRequestUriGatewayFilterFactory matched
+2022-07-23 17:14:33.337 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#requestSizeGatewayFilterFactory matched
+2022-07-23 17:14:33.338 TRACE 1290 --- [restartedMain] o.s.c.g.c.conditional.OnEnabledFilter    : Condition OnEnabledFilter on org.springframework.cloud.gateway.config.GatewayAutoConfiguration#requestHeaderSizeGatewayFilterFactory matched
+2022-07-23 17:14:33.527  INFO 1290 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-23 17:14:33.536  INFO 1290 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2022-07-23 17:14:33.738  INFO 1290 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=fa7cb15d-df3b-3eb3-8457-ea43893f7d22
+2022-07-23 17:14:33.856  INFO 1290 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-23 17:14:33.857  INFO 1290 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-23 17:14:33.858  INFO 1290 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-23 17:14:34.038  INFO 1290 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-23 17:14:34.110  INFO 1290 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-23 17:14:34.134  INFO 1290 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-23 17:14:34.157  INFO 1290 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-23 17:14:34.221  INFO 1290 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-23 17:14:34.278  INFO 1290 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-07-23 17:14:34.371  INFO 1290 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-23 17:14:34.377  INFO 1290 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-23 17:14:34.503 DEBUG 1290 --- [restartedMain] o.s.c.gateway.config.GatewayProperties   : Routes supplied from Gateway Properties: [RouteDefinition{id='disability-zus', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/disability-zus/**}}], filters=[], uri=lb://DISABILITY-ZUS, order=0, metadata={}}, RouteDefinition{id='pension-zus', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/pension-zus/**}}], filters=[], uri=lb://PENSION-ZUS, order=0, metadata={}}, RouteDefinition{id='sickness-zus', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/sickness-zus/**}}], filters=[], uri=lb://SICKNESS-ZUS, order=0, metadata={}}, RouteDefinition{id='total-zus', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/total-zus/**}}], filters=[], uri=lb://TOTAL-ZUS, order=0, metadata={}}, RouteDefinition{id='health', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/health/**}}], filters=[], uri=lb://HEALTH, order=0, metadata={}}, RouteDefinition{id='tax', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/tax/**}}], filters=[], uri=lb://TAX, order=0, metadata={}}, RouteDefinition{id='annual-gross', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/annual-gross/**}}], filters=[], uri=lb://ANNUAL-GROSS, order=0, metadata={}}, RouteDefinition{id='monthly-net', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/monthly-net/**}}], filters=[], uri=lb://MONTHLY-NET, order=0, metadata={}}, RouteDefinition{id='annual-net', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/annual-net/**}}], filters=[], uri=lb://ANNUAL-NET, order=0, metadata={}}, RouteDefinition{id='monthly-gross', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/monthly-gross/**}}], filters=[], uri=lb://MONTHLY-GROSS, order=0, metadata={}}, RouteDefinition{id='salary-calculator', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/salary-calculations/**}}], filters=[], uri=lb://SALARY-CALCULATOR, order=0, metadata={}}, RouteDefinition{id='server-discovery', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/eureka/microservices}}], filters=[FilterDefinition{name='SetPath', args={_genkey_0=/}}], uri=http://localhost:8761, order=0, metadata={}}, RouteDefinition{id='server-discovery-static', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/eureka/**}}], filters=[], uri=http://localhost:8761, order=0, metadata={}}, RouteDefinition{id='server-admin', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/monitoring/**}}], filters=[], uri=lb://SERVER-ADMIN, order=0, metadata={}}]
+2022-07-23 17:14:35.010  INFO 1290 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-07-23 17:14:35.061  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2022-07-23 17:14:35.062  INFO 1290 --- [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2022-07-23 17:14:35.116  INFO 1290 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
+2022-07-23 17:14:35.692  INFO 1290 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-07-23 17:14:35.727  WARN 1290 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-07-23 17:14:35.796  INFO 1290 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-07-23 17:14:35.817  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-07-23 17:14:35.819  INFO 1290 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 17:14:35.830  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-07-23 17:14:35.830  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-07-23 17:14:35.830  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-07-23 17:14:35.830  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-07-23 17:14:35.830  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-07-23 17:14:35.830  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-07-23 17:14:35.830  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-07-23 17:14:36.038  INFO 1290 --- [restartedMain] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused); nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused) stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused); nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:785)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:145)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplications(RestTemplateEurekaHttpClient.java:135)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry(DiscoveryClient.java:1101)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:1014)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:441)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:283)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:279)
+	at org.springframework.cloud.netflix.eureka.CloudEurekaClient.<init>(CloudEurekaClient.java:66)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration.eurekaClient(EurekaClientAutoConfiguration.java:295)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:374)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:376)
+	at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:179)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getTargetObject(EurekaRegistration.java:127)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getEurekaClient(EurekaRegistration.java:115)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282)
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:485)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration$$EnhancerBySpringCGLIB$$390bfa2a.getEurekaClient(<generated>)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.maybeInitializeClient(EurekaServiceRegistry.java:54)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.register(EurekaServiceRegistry.java:38)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration.start(EurekaAutoServiceRegistration.java:83)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178)
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586)
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:66)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.acoustic.apigateway.ApiGatewayApplication.main(ApiGatewayApplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:776)
+	... 73 more
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:609)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 86 more
+
+2022-07-23 17:14:36.038  WARN 1290 --- [restartedMain] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused); nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused)
+2022-07-23 17:14:36.039  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry(DiscoveryClient.java:1101)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:1014)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:441)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:283)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:279)
+	at org.springframework.cloud.netflix.eureka.CloudEurekaClient.<init>(CloudEurekaClient.java:66)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration.eurekaClient(EurekaClientAutoConfiguration.java:295)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:374)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:376)
+	at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:179)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getTargetObject(EurekaRegistration.java:127)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getEurekaClient(EurekaRegistration.java:115)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282)
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:485)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration$$EnhancerBySpringCGLIB$$390bfa2a.getEurekaClient(<generated>)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.maybeInitializeClient(EurekaServiceRegistry.java:54)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.register(EurekaServiceRegistry.java:38)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration.start(EurekaAutoServiceRegistration.java:83)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178)
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586)
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:66)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.acoustic.apigateway.ApiGatewayApplication.main(ApiGatewayApplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2022-07-23 17:14:36.039  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from primary servers failed
+2022-07-23 17:14:36.039  WARN 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Using default backup registry implementation which does not do anything.
+2022-07-23 17:14:36.039  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from backup servers failed
+2022-07-23 17:14:36.040  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-07-23 17:14:36.042  INFO 1290 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-07-23 17:14:36.045  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1658589276044 with initial instances count: 0
+2022-07-23 17:14:36.046  INFO 1290 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application API-GATEWAY with eureka with status UP
+2022-07-23 17:14:36.047  INFO 1290 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1658589276047, current=UP, previous=STARTING]
+2022-07-23 17:14:36.048  INFO 1290 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway: registering service...
+2022-07-23 17:14:36.075  INFO 1290 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/API-GATEWAY": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused); nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused) stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/API-GATEWAY": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused); nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:785)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:876)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:776)
+	... 22 more
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:609)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 35 more
+
+2022-07-23 17:14:36.075  WARN 1290 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/API-GATEWAY": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused); nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused)
+2022-07-23 17:14:36.078  WARN 1290 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway - registration failed Cannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:876) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2022-07-23 17:14:36.078  WARN 1290 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:876) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2022-07-23 17:14:36.099 DEBUG 1290 --- [restartedMain] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:14:36.197  INFO 1290 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080
+2022-07-23 17:14:36.199  INFO 1290 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8080
+2022-07-23 17:14:36.741 DEBUG 1290 --- [restartedMain] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:14:36.747  INFO 1290 --- [restartedMain] c.a.apigateway.ApiGatewayApplication     : Started ApiGatewayApplication in 4.576 seconds (JVM running for 5.245)
+2022-07-23 17:15:06.047  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-07-23 17:15:06.047  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-07-23 17:15:06.047  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-07-23 17:15:06.047  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-07-23 17:15:06.047  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-07-23 17:15:06.047  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-07-23 17:15:06.047  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-07-23 17:15:06.085  INFO 1290 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway: registering service...
+2022-07-23 17:15:06.169  INFO 1290 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway - Re-registering apps/API-GATEWAY
+2022-07-23 17:15:06.169  INFO 1290 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway: registering service...
+2022-07-23 17:15:06.174  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-07-23 17:15:06.181 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:15:06.199  INFO 1290 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway - registration status: 204
+2022-07-23 17:15:06.199  INFO 1290 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway - registration status: 204
+2022-07-23 17:15:36.184  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-07-23 17:15:36.185  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-07-23 17:15:36.185  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-07-23 17:15:36.185  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-07-23 17:15:36.185  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-07-23 17:15:36.185  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2022-07-23 17:15:36.185  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-07-23 17:15:36.193  INFO 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-07-23 17:15:36.201 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:15:36.213  INFO 1290 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway - Re-registering apps/API-GATEWAY
+2022-07-23 17:15:36.213  INFO 1290 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway: registering service...
+2022-07-23 17:15:36.217  INFO 1290 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/giuseppes-mbp:api-gateway - registration status: 204
+2022-07-23 17:15:39.692 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.f.WeightCalculatorWebFilter      : Weights attr: {}
+2022-07-23 17:15:39.704 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/disability-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.704 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/pension-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.704 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/sickness-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.704 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/total-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.704 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/health/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.704 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/tax/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.704 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.705 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.705 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.705 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.705 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "/salary-calculations/**" matches against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:39.705 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: salary-calculator
+2022-07-23 17:15:39.705 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: POST http://localhost:8080/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=-10] to Route{id='salary-calculator', uri=lb://SALARY-CALCULATOR, order=0, predicate=Paths: [/salary-calculations/**], match trailing slash: true, gatewayFilters=[], metadata={}}
+2022-07-23 17:15:39.705 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : [5b67bf7c-1] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@6ac8eae9
+2022-07-23 17:15:39.706 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@2ab6d7a5}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@4e79c1d0}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@3e0b541e}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@65b76de4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@2c46deb4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@58a52d4e}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter@4bd02a44}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerServiceInstanceCookieFilter@4a6d59df}, order = 10151], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@177f2fe0}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@a8de5a2}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@65c047cd}, order = 2147483647]]
+2022-07-23 17:15:39.709 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.RouteToRequestUrlFilter   : RouteToRequestUrlFilter start
+2022-07-23 17:15:39.709 TRACE 1290 --- [reactor-http-nio-3] s.c.g.f.ReactiveLoadBalancerClientFilter : ReactiveLoadBalancerClientFilter url before: lb://SALARY-CALCULATOR/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=-10
+2022-07-23 17:15:39.746 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:15:39.764  WARN 1290 --- [reactor-http-nio-3] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: SALARY-CALCULATOR
+2022-07-23 17:15:39.804 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.GatewayMetricsFilter      : spring.cloud.gateway.requests tags: [tag(httpMethod=POST),tag(httpStatusCode=503),tag(outcome=SERVER_ERROR),tag(routeId=salary-calculator),tag(routeUri=lb://SALARY-CALCULATOR),tag(status=SERVICE_UNAVAILABLE)]
+2022-07-23 17:15:47.983 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.f.WeightCalculatorWebFilter      : Weights attr: {}
+2022-07-23 17:15:47.984 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/disability-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.984 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/pension-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.985 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/sickness-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.985 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/total-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.985 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/health/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.985 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/tax/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.985 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.985 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.985 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.985 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.985 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "/salary-calculations/**" matches against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:47.985 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: salary-calculator
+2022-07-23 17:15:47.986 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: POST http://localhost:8080/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=-10] to Route{id='salary-calculator', uri=lb://SALARY-CALCULATOR, order=0, predicate=Paths: [/salary-calculations/**], match trailing slash: true, gatewayFilters=[], metadata={}}
+2022-07-23 17:15:47.986 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : [5b67bf7c-2] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@6ac8eae9
+2022-07-23 17:15:47.986 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@2ab6d7a5}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@4e79c1d0}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@3e0b541e}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@65b76de4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@2c46deb4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@58a52d4e}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter@4bd02a44}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerServiceInstanceCookieFilter@4a6d59df}, order = 10151], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@177f2fe0}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@a8de5a2}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@65c047cd}, order = 2147483647]]
+2022-07-23 17:15:47.986 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.RouteToRequestUrlFilter   : RouteToRequestUrlFilter start
+2022-07-23 17:15:47.986 TRACE 1290 --- [reactor-http-nio-3] s.c.g.f.ReactiveLoadBalancerClientFilter : ReactiveLoadBalancerClientFilter url before: lb://SALARY-CALCULATOR/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=-10
+2022-07-23 17:15:47.987  WARN 1290 --- [reactor-http-nio-3] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: SALARY-CALCULATOR
+2022-07-23 17:15:47.989 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.GatewayMetricsFilter      : spring.cloud.gateway.requests tags: [tag(httpMethod=POST),tag(httpStatusCode=503),tag(outcome=SERVER_ERROR),tag(routeId=salary-calculator),tag(routeUri=lb://SALARY-CALCULATOR),tag(status=SERVICE_UNAVAILABLE)]
+2022-07-23 17:15:49.190 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.f.WeightCalculatorWebFilter      : Weights attr: {}
+2022-07-23 17:15:49.190 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/disability-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.191 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/pension-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.191 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/sickness-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.191 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/total-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.191 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/health/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.191 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/tax/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.191 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.191 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.191 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.192 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.192 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "/salary-calculations/**" matches against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:49.192 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: salary-calculator
+2022-07-23 17:15:49.192 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: POST http://localhost:8080/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=-10] to Route{id='salary-calculator', uri=lb://SALARY-CALCULATOR, order=0, predicate=Paths: [/salary-calculations/**], match trailing slash: true, gatewayFilters=[], metadata={}}
+2022-07-23 17:15:49.192 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : [5b67bf7c-3] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@6ac8eae9
+2022-07-23 17:15:49.192 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@2ab6d7a5}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@4e79c1d0}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@3e0b541e}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@65b76de4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@2c46deb4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@58a52d4e}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter@4bd02a44}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerServiceInstanceCookieFilter@4a6d59df}, order = 10151], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@177f2fe0}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@a8de5a2}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@65c047cd}, order = 2147483647]]
+2022-07-23 17:15:49.192 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.RouteToRequestUrlFilter   : RouteToRequestUrlFilter start
+2022-07-23 17:15:49.192 TRACE 1290 --- [reactor-http-nio-3] s.c.g.f.ReactiveLoadBalancerClientFilter : ReactiveLoadBalancerClientFilter url before: lb://SALARY-CALCULATOR/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=-10
+2022-07-23 17:15:49.193  WARN 1290 --- [reactor-http-nio-3] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: SALARY-CALCULATOR
+2022-07-23 17:15:49.195 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.GatewayMetricsFilter      : spring.cloud.gateway.requests tags: [tag(httpMethod=POST),tag(httpStatusCode=503),tag(outcome=SERVER_ERROR),tag(routeId=salary-calculator),tag(routeUri=lb://SALARY-CALCULATOR),tag(status=SERVICE_UNAVAILABLE)]
+2022-07-23 17:15:50.203 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.f.WeightCalculatorWebFilter      : Weights attr: {}
+2022-07-23 17:15:50.204 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/disability-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.204 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/pension-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.204 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/sickness-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.204 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/total-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.204 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/health/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.204 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/tax/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.204 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.204 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.204 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.204 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.205 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "/salary-calculations/**" matches against value "/salary-calculations/calculations/6000"
+2022-07-23 17:15:50.205 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: salary-calculator
+2022-07-23 17:15:50.205 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: POST http://localhost:8080/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=-10] to Route{id='salary-calculator', uri=lb://SALARY-CALCULATOR, order=0, predicate=Paths: [/salary-calculations/**], match trailing slash: true, gatewayFilters=[], metadata={}}
+2022-07-23 17:15:50.205 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : [5b67bf7c-4] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@6ac8eae9
+2022-07-23 17:15:50.205 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@2ab6d7a5}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@4e79c1d0}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@3e0b541e}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@65b76de4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@2c46deb4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@58a52d4e}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter@4bd02a44}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerServiceInstanceCookieFilter@4a6d59df}, order = 10151], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@177f2fe0}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@a8de5a2}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@65c047cd}, order = 2147483647]]
+2022-07-23 17:15:50.205 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.RouteToRequestUrlFilter   : RouteToRequestUrlFilter start
+2022-07-23 17:15:50.205 TRACE 1290 --- [reactor-http-nio-3] s.c.g.f.ReactiveLoadBalancerClientFilter : ReactiveLoadBalancerClientFilter url before: lb://SALARY-CALCULATOR/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=-10
+2022-07-23 17:15:50.205  WARN 1290 --- [reactor-http-nio-3] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: SALARY-CALCULATOR
+2022-07-23 17:15:50.207 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.GatewayMetricsFilter      : spring.cloud.gateway.requests tags: [tag(httpMethod=POST),tag(httpStatusCode=503),tag(outcome=SERVER_ERROR),tag(routeId=salary-calculator),tag(routeUri=lb://SALARY-CALCULATOR),tag(status=SERVICE_UNAVAILABLE)]
+2022-07-23 17:16:06.216 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:16:32.595 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.f.WeightCalculatorWebFilter      : Weights attr: {}
+2022-07-23 17:16:32.596 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/disability-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.596 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/pension-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.596 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/sickness-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.596 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/total-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.596 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/health/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.596 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/tax/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.596 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.597 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.597 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.597 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.597 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "/salary-calculations/**" matches against value "/salary-calculations/calculations/6000"
+2022-07-23 17:16:32.597 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: salary-calculator
+2022-07-23 17:16:32.597 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: POST http://localhost:8080/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15] to Route{id='salary-calculator', uri=lb://SALARY-CALCULATOR, order=0, predicate=Paths: [/salary-calculations/**], match trailing slash: true, gatewayFilters=[], metadata={}}
+2022-07-23 17:16:32.597 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : [5b67bf7c-5] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@6ac8eae9
+2022-07-23 17:16:32.597 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@2ab6d7a5}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@4e79c1d0}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@3e0b541e}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@65b76de4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@2c46deb4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@58a52d4e}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter@4bd02a44}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerServiceInstanceCookieFilter@4a6d59df}, order = 10151], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@177f2fe0}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@a8de5a2}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@65c047cd}, order = 2147483647]]
+2022-07-23 17:16:32.597 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.RouteToRequestUrlFilter   : RouteToRequestUrlFilter start
+2022-07-23 17:16:32.597 TRACE 1290 --- [reactor-http-nio-3] s.c.g.f.ReactiveLoadBalancerClientFilter : ReactiveLoadBalancerClientFilter url before: lb://SALARY-CALCULATOR/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15
+2022-07-23 17:16:32.598  WARN 1290 --- [reactor-http-nio-3] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: SALARY-CALCULATOR
+2022-07-23 17:16:32.599 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.GatewayMetricsFilter      : spring.cloud.gateway.requests tags: [tag(httpMethod=POST),tag(httpStatusCode=503),tag(outcome=SERVER_ERROR),tag(routeId=salary-calculator),tag(routeUri=lb://SALARY-CALCULATOR),tag(status=SERVICE_UNAVAILABLE)]
+2022-07-23 17:16:36.230 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:17:06.242 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:17:30.410 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.f.WeightCalculatorWebFilter      : Weights attr: {}
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/disability-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/pension-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/sickness-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/total-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/health/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/tax/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.411 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "/salary-calculations/**" matches against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:30.412 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: salary-calculator
+2022-07-23 17:17:30.412 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: POST http://localhost:8080/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15] to Route{id='salary-calculator', uri=lb://SALARY-CALCULATOR, order=0, predicate=Paths: [/salary-calculations/**], match trailing slash: true, gatewayFilters=[], metadata={}}
+2022-07-23 17:17:30.412 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : [5b67bf7c-6] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@6ac8eae9
+2022-07-23 17:17:30.412 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@2ab6d7a5}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@4e79c1d0}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@3e0b541e}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@65b76de4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@2c46deb4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@58a52d4e}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter@4bd02a44}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerServiceInstanceCookieFilter@4a6d59df}, order = 10151], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@177f2fe0}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@a8de5a2}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@65c047cd}, order = 2147483647]]
+2022-07-23 17:17:30.412 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.RouteToRequestUrlFilter   : RouteToRequestUrlFilter start
+2022-07-23 17:17:30.412 TRACE 1290 --- [reactor-http-nio-3] s.c.g.f.ReactiveLoadBalancerClientFilter : ReactiveLoadBalancerClientFilter url before: lb://SALARY-CALCULATOR/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15
+2022-07-23 17:17:30.413  WARN 1290 --- [reactor-http-nio-3] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: SALARY-CALCULATOR
+2022-07-23 17:17:30.414 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.GatewayMetricsFilter      : spring.cloud.gateway.requests tags: [tag(httpMethod=POST),tag(httpStatusCode=503),tag(outcome=SERVER_ERROR),tag(routeId=salary-calculator),tag(routeUri=lb://SALARY-CALCULATOR),tag(status=SERVICE_UNAVAILABLE)]
+2022-07-23 17:17:31.748 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.f.WeightCalculatorWebFilter      : Weights attr: {}
+2022-07-23 17:17:31.749 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/disability-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.749 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/pension-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.749 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/sickness-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.749 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/total-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.749 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/health/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.749 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/tax/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.749 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.749 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.749 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.749 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.750 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "/salary-calculations/**" matches against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:31.750 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: salary-calculator
+2022-07-23 17:17:31.750 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: POST http://localhost:8080/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15] to Route{id='salary-calculator', uri=lb://SALARY-CALCULATOR, order=0, predicate=Paths: [/salary-calculations/**], match trailing slash: true, gatewayFilters=[], metadata={}}
+2022-07-23 17:17:31.750 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : [5b67bf7c-7] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@6ac8eae9
+2022-07-23 17:17:31.750 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@2ab6d7a5}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@4e79c1d0}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@3e0b541e}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@65b76de4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@2c46deb4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@58a52d4e}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter@4bd02a44}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerServiceInstanceCookieFilter@4a6d59df}, order = 10151], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@177f2fe0}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@a8de5a2}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@65c047cd}, order = 2147483647]]
+2022-07-23 17:17:31.750 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.RouteToRequestUrlFilter   : RouteToRequestUrlFilter start
+2022-07-23 17:17:31.750 TRACE 1290 --- [reactor-http-nio-3] s.c.g.f.ReactiveLoadBalancerClientFilter : ReactiveLoadBalancerClientFilter url before: lb://SALARY-CALCULATOR/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15
+2022-07-23 17:17:31.751  WARN 1290 --- [reactor-http-nio-3] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: SALARY-CALCULATOR
+2022-07-23 17:17:31.753 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.GatewayMetricsFilter      : spring.cloud.gateway.requests tags: [tag(httpMethod=POST),tag(httpStatusCode=503),tag(outcome=SERVER_ERROR),tag(routeId=salary-calculator),tag(routeUri=lb://SALARY-CALCULATOR),tag(status=SERVICE_UNAVAILABLE)]
+2022-07-23 17:17:32.737 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.f.WeightCalculatorWebFilter      : Weights attr: {}
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/disability-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/pension-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/sickness-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/total-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/health/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/tax/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "/salary-calculations/**" matches against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:32.738 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: salary-calculator
+2022-07-23 17:17:32.739 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: POST http://localhost:8080/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15] to Route{id='salary-calculator', uri=lb://SALARY-CALCULATOR, order=0, predicate=Paths: [/salary-calculations/**], match trailing slash: true, gatewayFilters=[], metadata={}}
+2022-07-23 17:17:32.739 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : [5b67bf7c-8] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@6ac8eae9
+2022-07-23 17:17:32.739 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@2ab6d7a5}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@4e79c1d0}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@3e0b541e}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@65b76de4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@2c46deb4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@58a52d4e}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter@4bd02a44}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerServiceInstanceCookieFilter@4a6d59df}, order = 10151], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@177f2fe0}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@a8de5a2}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@65c047cd}, order = 2147483647]]
+2022-07-23 17:17:32.739 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.RouteToRequestUrlFilter   : RouteToRequestUrlFilter start
+2022-07-23 17:17:32.739 TRACE 1290 --- [reactor-http-nio-3] s.c.g.f.ReactiveLoadBalancerClientFilter : ReactiveLoadBalancerClientFilter url before: lb://SALARY-CALCULATOR/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15
+2022-07-23 17:17:32.739  WARN 1290 --- [reactor-http-nio-3] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: SALARY-CALCULATOR
+2022-07-23 17:17:32.741 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.GatewayMetricsFilter      : spring.cloud.gateway.requests tags: [tag(httpMethod=POST),tag(httpStatusCode=503),tag(outcome=SERVER_ERROR),tag(routeId=salary-calculator),tag(routeUri=lb://SALARY-CALCULATOR),tag(status=SERVICE_UNAVAILABLE)]
+2022-07-23 17:17:36.254 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:17:49.302 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.f.WeightCalculatorWebFilter      : Weights attr: {}
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/disability-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/pension-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/sickness-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/total-zus/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/health/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/tax/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/annual-net/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "[/monthly-gross/**]" does not match against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.h.p.PathRoutePredicateFactory    : Pattern "/salary-calculations/**" matches against value "/salary-calculations/calculations/6000"
+2022-07-23 17:17:49.303 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Route matched: salary-calculator
+2022-07-23 17:17:49.303 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : Mapping [Exchange: POST http://localhost:8080/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15] to Route{id='salary-calculator', uri=lb://SALARY-CALCULATOR, order=0, predicate=Paths: [/salary-calculations/**], match trailing slash: true, gatewayFilters=[], metadata={}}
+2022-07-23 17:17:49.303 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.h.RoutePredicateHandlerMapping   : [5b67bf7c-9] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@6ac8eae9
+2022-07-23 17:17:49.304 DEBUG 1290 --- [reactor-http-nio-3] o.s.c.g.handler.FilteringWebHandler      : Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@2ab6d7a5}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@4e79c1d0}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@3e0b541e}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@65b76de4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@2c46deb4}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@58a52d4e}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter@4bd02a44}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerServiceInstanceCookieFilter@4a6d59df}, order = 10151], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@177f2fe0}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@a8de5a2}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@65c047cd}, order = 2147483647]]
+2022-07-23 17:17:49.304 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.RouteToRequestUrlFilter   : RouteToRequestUrlFilter start
+2022-07-23 17:17:49.304 TRACE 1290 --- [reactor-http-nio-3] s.c.g.f.ReactiveLoadBalancerClientFilter : ReactiveLoadBalancerClientFilter url before: lb://SALARY-CALCULATOR/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15
+2022-07-23 17:17:49.307 TRACE 1290 --- [reactor-http-nio-3] s.c.g.f.ReactiveLoadBalancerClientFilter : LoadBalancerClientFilter url chosen: http://giuseppes-mbp:8096/salary-calculations/calculations/6000?departmentName=airline&jobTitleId=15
+2022-07-23 17:17:49.652 TRACE 1290 --- [reactor-http-nio-3] o.s.c.gateway.filter.NettyRoutingFilter  : outbound route: 6a278960, inbound: [5b67bf7c-9] 
+2022-07-23 17:17:49.906 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.NettyWriteResponseFilter  : NettyWriteResponseFilter start inbound: 6a278960, outbound: [5b67bf7c-9] 
+2022-07-23 17:17:49.913 TRACE 1290 --- [reactor-http-nio-3] o.s.c.g.filter.GatewayMetricsFilter      : spring.cloud.gateway.requests tags: [tag(httpMethod=POST),tag(httpStatusCode=500),tag(outcome=SERVER_ERROR),tag(routeId=salary-calculator),tag(routeUri=lb://SALARY-CALCULATOR),tag(status=INTERNAL_SERVER_ERROR)]
+2022-07-23 17:18:06.265 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:18:36.277 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:19:06.291 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:19:35.845  INFO 1290 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 17:19:36.305 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:20:06.317 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:20:36.335 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:21:06.352 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:21:36.369 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:22:06.384 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:22:36.399 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:23:06.411 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:23:36.426 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:24:06.439 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:24:35.855  INFO 1290 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 17:24:36.452 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:25:06.468 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:25:36.481 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:26:06.493 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:26:36.507 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:27:06.518 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:27:36.526 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:28:06.537 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:28:36.550 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:29:06.563 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:29:35.849  INFO 1290 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 17:29:36.559 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:30:06.563 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:30:36.571 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:31:06.582 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:31:36.592 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:32:06.600 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:32:36.611 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:33:06.627 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:33:36.641 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:34:06.653 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:34:35.857  INFO 1290 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 17:34:36.665 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:35:06.678 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:35:36.690 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:36:06.702 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:36:36.714 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:37:06.725 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:37:36.793 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:38:06.805 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:38:36.818 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:39:06.836 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:39:35.866  INFO 1290 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 17:39:36.844 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:40:06.867 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14
+2022-07-23 17:40:36.877 DEBUG 1290 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.c.g.filter.GatewayMetricsFilter      : New routes count: 14

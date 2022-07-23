@@ -38,11 +38,8 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
     public static final String JOB_TITLE_ID_REQUEST_PARAM = "&jobTitleId=";
 
     private boolean average;
-
-
     @Autowired
     private MockMvc mockMvc;
-
     @Autowired
     private ObjectMapper objectMapper;
     @Autowired
@@ -50,7 +47,6 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
 
     @MockBean
     private DataSalaryCalculatorRepository dataSalaryCalculatorRepository;
-
     @MockBean
     private SalaryCalculatorOrchestratorController salaryCalculatorOrchestratorController;
 
@@ -62,7 +58,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
             "7700, restaurant, 6",
             "12191.68, it, 10",
             "185891.68, finance, 2"})
-    public void getSalaryCalculation(BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws Exception {
+    public void calculateSalary(BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) throws Exception {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
         given(this.salaryCalculatorOrchestratorController.calculateSalary(grossMonthlySalary, departmentName, jobTitleId)).willReturn(ResponseEntity.status(HttpStatus.OK).body(this.salaryCalculatorResponse.expectedValue(grossMonthlySalary, average)));
@@ -84,7 +80,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
             "7700, restaurant, 20",
             "12191.68, it, 30",
             "185891.68, finance, 40"})
-    public void getSalaryCalculationIdOutOfBounds(
+    public void calculateSalaryIdOutOfBounds(
             BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
@@ -108,7 +104,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
             "7700, restaurants, 1",
             "12191.68, rest, 2",
             "185891.68, finances, 3"})
-    public void getSalaryCalculationWrongDepartmentName(
+    public void calculateSalaryWrongDepartmentName(
             BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
@@ -131,7 +127,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
             "-7700, restaurant, 1",
             "1999.9999, it, 2",
             "0, finance, 3"})
-    public void getSalaryCalculationGrossBelowTrashHold(
+    public void calculateSalaryGrossBelowTrashHold(
             BigDecimal grossMonthlySalary, String departmentName, int jobTitleId) {
         this.average = true;
         given(this.dataSalaryCalculatorRepository.findAverageByJobTitle(any())).willReturn(grossMonthlySalary);
@@ -150,7 +146,7 @@ public class SalaryCalculatorOrchestratorControllerPostTest {
 
     @ParameterizedTest
     @CsvSource({"6000", "7000", "15891.68", "7700", "2999.9999"})
-    public void getSalaryCalculationGrossNoStatistic(BigDecimal grossMonthlySalary) throws Exception {
+    public void calculateSalaryGrossNoStatistic(BigDecimal grossMonthlySalary) throws Exception {
         this.average = false;
         String department = null;
         Integer jobId = null;
