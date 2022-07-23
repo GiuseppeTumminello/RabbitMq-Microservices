@@ -16,9 +16,7 @@ public class TaxService implements SalaryCalculatorService {
 
     private static final int MONTHS_NUMBER = 12;
     private final RatesConfigurationProperties rate;
-
     private final RabbitMqSettings rabbitMqSettings;
-
     private final RabbitTemplate rabbitTemplate;
 
 

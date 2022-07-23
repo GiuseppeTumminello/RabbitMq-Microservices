@@ -27,10 +27,8 @@ import static org.mockito.Mockito.verify;
 public class RabbitMqTaxTest {
     @Autowired
     private TaxController taxController;
-
     @Autowired
     private RabbitListenerTestHarness harness;
-
     @Autowired
     private TestRabbitTemplate testRabbitTemplate;
 
@@ -43,10 +41,10 @@ public class RabbitMqTaxTest {
     @CsvSource({"6000", "7000", "8555", "15143.99"})
     public void receiveMessageTest(BigDecimal grossMonthlySalary) {
         this.taxController = this.harness.getSpy(this.rabbitMqSettings.getReceiverId());
-        assertNotNull(taxController);
+        assertNotNull(this.taxController);
         var taxData = Tax.builder().description(this.salaryCalculatorService.getDescription()).amount(grossMonthlySalary).uuid(UUID.randomUUID()).build();
         this.testRabbitTemplate.convertAndSend(this.rabbitMqSettings.getQueueTax(), taxData);
-        verify(this.taxController).receivedMessage(taxData);
+        verify(this.taxController).receiveMessage(taxData);
     }
 
 }

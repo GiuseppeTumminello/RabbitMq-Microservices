@@ -35,14 +35,14 @@ public class TotalZusController {
 
 
     @RabbitListener(id = TOTAL_ZUS_RECEIVER_ID ,queues = "${rabbitmq.queueTotalZus}")
-    public void receivedMessage(TotalZus totalZus) {
+    public void receiveMessage(TotalZus totalZus) {
         sendTotalZusDataToSalaryCalculatorOrchestrator(totalZus.getAmount(), totalZus.getUuid());
 
     }
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateTotalZusEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
+    public ResponseEntity<Map<String, String>> calculationTotalZusEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
         var totalZus = calculateTotalZus(grossMonthlySalary);
         saveTotalZus(totalZus, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(totalZus)));

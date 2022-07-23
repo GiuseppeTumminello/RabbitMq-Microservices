@@ -43,10 +43,10 @@ public class RabbitMqPensionZusTest {
     @CsvSource({"6000", "7000", "8555", "15143.99"})
     public void receiveMessageTest(BigDecimal grossMonthlySalary) {
         this.pensionZusController = this.harness.getSpy(this.rabbitMqSettings.getReceiverId());
-        assertNotNull(pensionZusController);
+        assertNotNull(this.pensionZusController);
         var pensionZusData = PensionZus.builder().description(this.salaryCalculatorService.getDescription()).amount(grossMonthlySalary).uuid(UUID.randomUUID()).build();
         this.testRabbitTemplate.convertAndSend(this.rabbitMqSettings.getQueuePensionZus(), pensionZusData);
-        verify(this.pensionZusController).receivedMessage(pensionZusData);
+        verify(this.pensionZusController).receiveMessage(pensionZusData);
     }
 
 }

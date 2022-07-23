@@ -22,7 +22,6 @@ class TaxServiceTest {
 
     public static final double TOTAL_ZUS_RATE = 0.1371;
     public static final double HEALTH_RATE = 0.09;
-
     public static final int TAX_GROSS_AMOUNT_THRESHOLD = 120000;
     public static final double TAX_AMOUNT_RATE_17 = 0.0832;
     public static final double TAX_AMOUNT_RATE_32 = 0.1432;

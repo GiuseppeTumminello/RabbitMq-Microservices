@@ -26,7 +26,6 @@ import java.util.UUID;
 @Slf4j
 public class PensionZusController {
 
-
     public static final int MINIMUM_SALARY = 2000;
     private final PensionZusRepository pensionZusRepository;
     private final SalaryCalculatorService salaryCalculatorService;
@@ -35,7 +34,7 @@ public class PensionZusController {
 
 
     @RabbitListener(id = PENSION_ZUS_RECEIVER_ID ,queues = "${rabbitmq.queuePensionZus}")
-    public void receivedMessage(PensionZus pensionZus) {
+    public void receiveMessage(PensionZus pensionZus) {
         log.warn(pensionZus.getUuid().toString());
         sendPensionZusDataToSalaryCalculatorOrchestrator(pensionZus.getAmount(), pensionZus.getUuid());
 
@@ -43,7 +42,7 @@ public class PensionZusController {
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculatePensionZusEndpoint(@PathVariable @Min(MINIMUM_SALARY) BigDecimal grossMonthlySalary) {
+    public ResponseEntity<Map<String, String>> calculationPensionZusEndpoint(@PathVariable @Min(MINIMUM_SALARY) BigDecimal grossMonthlySalary) {
         var pensionZus = calculatePensionZusData(grossMonthlySalary);
         savePensionZus(pensionZus, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(pensionZus)));

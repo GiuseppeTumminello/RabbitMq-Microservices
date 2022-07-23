@@ -30,17 +30,17 @@ public class TaxController {
 
 
     @RabbitListener(id = TAX_RECEIVER_ID,queues = "${rabbitmq.queueTax}")
-    public void receivedMessage(Tax tax) {
+    public void receiveMessage(Tax tax) {
         sendTaxDataToSalaryCalculatorOrchestrator(tax.getAmount(), tax.getUuid());
 
     }
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateTaxEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
-        var sicknessZus = calculateTax(grossMonthlySalary);
-        saveTax(sicknessZus, UUID.randomUUID());
-        return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(sicknessZus)));
+    public ResponseEntity<Map<String, String>> calculationTaxEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
+        var taxZus = calculateTax(grossMonthlySalary);
+        saveTax(taxZus, UUID.randomUUID());
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(taxZus)));
     }
 
     private void sendTaxDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {

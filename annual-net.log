@@ -2497,3 +2497,5 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2022-07-23 09:07:45.280  INFO 1744 --- [RMI TCP Connection(2)-192.168.100.158] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
 2022-07-23 09:12:44.881  INFO 1744 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2022-07-23 09:17:44.882  INFO 1744 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 09:22:44.906  INFO 1744 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-07-23 09:27:44.915  INFO 1744 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

@@ -36,7 +36,7 @@ public class SicknessZusController {
 
 
     @RabbitListener(id = SICKNESS_ZUS_RECEIVER_ID, queues = "${rabbitmq.queueSicknessZus}")
-    public void receivedMessage(SicknessZus sicknessZus) {
+    public void receiveMessage(SicknessZus sicknessZus) {
         log.warn(sicknessZus.getUuid().toString());
         sendSicknessZusDataToSalaryCalculatorOrchestrator(sicknessZus.getAmount(), sicknessZus.getUuid());
 
@@ -44,7 +44,7 @@ public class SicknessZusController {
 
 
     @PostMapping("/calculation/{grossMonthlySalary}")
-    public ResponseEntity<Map<String, String>> calculateSicknessZusEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
+    public ResponseEntity<Map<String, String>> calculationSicknessZusEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
         var sicknessZus = calculateSicknessZus(grossMonthlySalary);
         saveSicknessZus(sicknessZus, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(sicknessZus)));
