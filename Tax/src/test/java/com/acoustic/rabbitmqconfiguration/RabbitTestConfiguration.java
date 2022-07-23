@@ -19,7 +19,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.willReturn;
 import static org.mockito.Mockito.mock;
 
-@RabbitListenerTest(capture = true, spy = true)
+@RabbitListenerTest(capture = true)
 @TestConfiguration
 public class RabbitTestConfiguration {
     @Autowired
@@ -43,9 +43,6 @@ public class RabbitTestConfiguration {
         factory.setAcknowledgeMode(AcknowledgeMode.AUTO);
         return factory;
     }
-
-
-
 
 
     @Bean

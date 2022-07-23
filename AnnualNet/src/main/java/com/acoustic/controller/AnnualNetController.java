@@ -32,7 +32,7 @@ public class AnnualNetController{
 
 
     @RabbitListener(id = ANNUAL_NET_RECEIVER_ID,queues = "${rabbitmq.queueAnnualNet}")
-    public void receivedMessage(AnnualNet annualNet) {
+    public void receiveMessage(AnnualNet annualNet) {
         log.warn(annualNet.getUuid().toString());
         sendAnnualNetEndpointDataToSalaryCalculatorOrchestrator(annualNet.getAmount(),annualNet.getUuid());
 

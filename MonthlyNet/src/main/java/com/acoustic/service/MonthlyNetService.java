@@ -16,7 +16,6 @@ public class MonthlyNetService implements SalaryCalculatorService {
 
     private static final int MONTHS_NUMBER = 12;
     private final RatesConfigurationProperties rate;
-
     private final RabbitTemplate rabbitTemplate;
     private final RabbitMqSettings rabbitMqSettings;
 

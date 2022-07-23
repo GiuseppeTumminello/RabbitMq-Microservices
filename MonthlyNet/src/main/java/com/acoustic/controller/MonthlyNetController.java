@@ -26,7 +26,6 @@ public class MonthlyNetController {
     public static final int MINIMUM_GROSS = 2000;
     private final MonthlyNetRepository monthlyNetRepository;
     private final SalaryCalculatorService salaryCalculatorService;
-
     private static final String MONTHLY_NET_RECEIVER_ID = "monthlyNetReceiverId";
 
 
@@ -41,22 +40,22 @@ public class MonthlyNetController {
 
     @PostMapping("/calculation/{grossMonthlySalary}")
     public ResponseEntity<Map<String, String>> calculationMonthlyNetEndpoint(@PathVariable @Min(MINIMUM_GROSS) BigDecimal grossMonthlySalary) {
-        var annualNet = calculateMonthlyData(grossMonthlySalary);
-        saveMonthlyData(annualNet, UUID.randomUUID());
+        var annualNet = calculateMonthlyNet(grossMonthlySalary);
+        saveMonthlyNetData(annualNet, UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.OK).body(Map.of(this.salaryCalculatorService.getDescription(), String.valueOf(annualNet)));
     }
 
     private void sendMonthlyNetDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
-        var monthlyNet = calculateMonthlyData(grossMonthlySalary);
-        var monthlyNetData = saveMonthlyData(monthlyNet, uuid);
+        var monthlyNet = calculateMonthlyNet(grossMonthlySalary);
+        var monthlyNetData = saveMonthlyNetData(monthlyNet, uuid);
         this.salaryCalculatorService.sendMonthlyNet(monthlyNetData);
     }
 
-    private MonthlyNet saveMonthlyData(BigDecimal monthlyNet, UUID uuid) {
+    private MonthlyNet saveMonthlyNetData(BigDecimal monthlyNet, UUID uuid) {
         return this.monthlyNetRepository.saveAndFlush(MonthlyNet.builder().description(this.salaryCalculatorService.getDescription()).amount(monthlyNet).uuid(uuid).build());
     }
 
-    private BigDecimal calculateMonthlyData(BigDecimal grossMonthlySalary) {
+    private BigDecimal calculateMonthlyNet(BigDecimal grossMonthlySalary) {
         return this.salaryCalculatorService.apply(grossMonthlySalary);
     }
 

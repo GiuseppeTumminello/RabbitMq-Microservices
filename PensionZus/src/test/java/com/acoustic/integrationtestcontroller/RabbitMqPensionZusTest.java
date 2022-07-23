@@ -27,7 +27,6 @@ import static org.mockito.Mockito.verify;
 public class RabbitMqPensionZusTest {
     @Autowired
     private PensionZusController pensionZusController;
-
     @Autowired
     private RabbitListenerTestHarness harness;
 

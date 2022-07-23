@@ -19,8 +19,6 @@ class AnnualGrossApplicationServiceTest {
     @InjectMocks
     private AnnualGrossAmount salaryCalculatorService;
 
-
-
     @Test
     void getDescription() {
         assertThat(this.salaryCalculatorService.getDescription()).isEqualTo(ANNUAL_GROSS_DESCRIPTION);

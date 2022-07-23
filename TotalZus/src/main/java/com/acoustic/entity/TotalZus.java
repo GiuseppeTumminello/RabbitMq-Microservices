@@ -22,7 +22,6 @@ public class TotalZus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String description;
     private BigDecimal amount;
     private UUID uuid;

@@ -27,13 +27,10 @@ import static org.mockito.Mockito.verify;
 public class RabbitMqSicknessZusTest {
     @Autowired
     private SicknessZusController sicknessZusController;
-
     @Autowired
     private RabbitListenerTestHarness harness;
-
     @Autowired
     private TestRabbitTemplate testRabbitTemplate;
-
     @Autowired
     private RabbitMqSettings rabbitMqSettings;
     @Autowired

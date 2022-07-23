@@ -12,7 +12,7 @@ public interface SalaryCalculatorService extends UnaryOperator<BigDecimal> {
 
      String getDescription();
 
-     void sendAnnualNet(Health health);
+     void sendHealth(Health health);
 
 
 }

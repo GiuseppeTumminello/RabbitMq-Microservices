@@ -25,7 +25,6 @@ public class HealthController {
 
 
     public static final int MINIMUM_GROSS = 2000;
-
     private static final String HEALTH_RECEIVER_ID = "healthReceiverId";
     private final HealthRepository healthRepository;
     private final SalaryCalculatorService salaryCalculatorService;
@@ -49,7 +48,7 @@ public class HealthController {
     private void sendHealthDataToSalaryCalculatorOrchestrator(BigDecimal grossMonthlySalary, UUID uuid) {
         var health = calculateHealth(grossMonthlySalary);
         var healthData = saveHealth(health, uuid);
-        this.salaryCalculatorService.sendAnnualNet(healthData);
+        this.salaryCalculatorService.sendHealth(healthData);
     }
 
     private Health saveHealth(BigDecimal health, UUID uuid) {

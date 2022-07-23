@@ -43,7 +43,7 @@ public class RabbitMqAnnualNetTest {
         assertNotNull(annualNetController);
         var annualNetData = AnnualNet.builder().description(this.salaryCalculatorService.getDescription()).amount(grossMonthlySalary).uuid(UUID.randomUUID()).build();
         this.testRabbitTemplate.convertAndSend(this.rabbitMqSettings.getQueueAnnualNet(), annualNetData);
-        verify(this.annualNetController).receivedMessage(annualNetData);
+        verify(this.annualNetController).receiveMessage(annualNetData);
     }
 
 }

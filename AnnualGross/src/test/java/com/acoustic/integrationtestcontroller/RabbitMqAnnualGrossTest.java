@@ -40,7 +40,7 @@ public class RabbitMqAnnualGrossTest {
     @CsvSource({"6000", "7000", "8555", "15143.99"})
     public void receiveMessageTest(BigDecimal grossMonthlySalary) {
         this.annualGrossController = this.harness.getSpy(this.rabbitMqSettings.getReceiverId());
-        assertNotNull(annualGrossController);
+        assertNotNull(this.annualGrossController);
         var annualGrossData = AnnualGross.builder().description(this.salaryCalculatorService.getDescription()).amount(grossMonthlySalary).uuid(UUID.randomUUID()).build();
         this.testRabbitTemplate.convertAndSend(this.rabbitMqSettings.getQueueAnnualGross(), annualGrossData);
         verify(this.annualGrossController).receiveMessages(annualGrossData);

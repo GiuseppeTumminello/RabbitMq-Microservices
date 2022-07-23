@@ -27,9 +27,7 @@ import java.util.UUID;
 public class MonthlyGrossController {
 
     public static final int MINIMUM_GROSS = 2000;
-
     private static final String MONTHLY_GROSS_RECEIVER_ID = "monthlyGrossReceiverId";
-
     private final MonthlyGrossRepository monthlyGrossRepository;
     private final SalaryCalculatorService salaryCalculatorService;
 

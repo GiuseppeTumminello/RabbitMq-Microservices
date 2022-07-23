@@ -7,15 +7,6 @@ dependencies {
     implementation 'de.codecentric:spring-boot-admin-starter-client'
 }
 
-ext {
-    set('springBootAdminVersion', "2.7.1")
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
-    }
-}
 
 test {
     useJUnitPlatform()

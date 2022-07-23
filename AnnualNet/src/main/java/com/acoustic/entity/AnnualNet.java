@@ -19,6 +19,7 @@ import java.util.UUID;
 @Builder
 @Data
 public class AnnualNet {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

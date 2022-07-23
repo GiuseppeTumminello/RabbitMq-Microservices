@@ -26,13 +26,9 @@ import java.util.UUID;
 @Slf4j
 public class AnnualGrossController {
 
-
     public static final int MINIMUM_GROSS = 2000;
-
     private static final String ANNUAL_GROSS_RECEIVER_ID = "AnnualGrossReceiverId";
-
     private final SalaryCalculatorService salaryCalculatorService;
-
     private final AnnualGrossRepository annualGrossRepository;
 
 

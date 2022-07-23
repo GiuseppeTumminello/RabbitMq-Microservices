@@ -19,7 +19,6 @@ import static org.mockito.BDDMockito.given;
 class TaxServiceTest {
 
     public static final String TAX_DESCRIPTION = "Tax";
-
     public static final double TOTAL_ZUS_RATE = 0.1371;
     public static final double HEALTH_RATE = 0.09;
     public static final int TAX_GROSS_AMOUNT_THRESHOLD = 120000;

@@ -12,21 +12,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 
-import java.io.IOException;
-
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.willReturn;
 import static org.mockito.Mockito.mock;
 
-@RabbitListenerTest(capture = true, spy = true)
+@RabbitListenerTest(capture = true)
 @TestConfiguration
 public class RabbitTestConfiguration {
     @Autowired
     private RabbitMqConfiguration rabbitTestConfiguration;
 
     @Bean
-    public ConnectionFactory mockConnectionFactory() throws IOException {
+    public ConnectionFactory mockConnectionFactory() {
         ConnectionFactory factory = mock(ConnectionFactory.class);
         Connection connection = mock(Connection.class);
         Channel channel = mock(Channel.class);
@@ -37,7 +35,7 @@ public class RabbitTestConfiguration {
     }
 
     @Bean
-    public SimpleRabbitListenerContainerFactory testRabbitListenerContainerFactory() throws IOException {
+    public SimpleRabbitListenerContainerFactory testRabbitListenerContainerFactory()  {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(mockConnectionFactory());
         factory.setAcknowledgeMode(AcknowledgeMode.AUTO);

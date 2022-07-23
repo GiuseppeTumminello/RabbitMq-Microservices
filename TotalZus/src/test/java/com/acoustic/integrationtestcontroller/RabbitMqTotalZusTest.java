@@ -27,7 +27,6 @@ import static org.mockito.Mockito.verify;
 public class RabbitMqTotalZusTest {
     @Autowired
     private TotalZusController totalZusController;
-
     @Autowired
     private RabbitListenerTestHarness harness;
 
