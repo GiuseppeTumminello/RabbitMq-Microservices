@@ -63,6 +63,14 @@ Swagger it is available via the following endpoints:
 
 The first endpoints is accessible via Spring api Gateway and the second ones through the server port.
 
+### Rabbit MQ
+
+The project is built asynchronously using Rabbit MQ, click the following link to access to the dashboard:
+
+* http://192.168.99.105:15672/
+
+Replace "192.168.99.105" with your docker ip machine.
+
 ### Spring Admin Microservice
 
 The spring admin microservices displays all the services up and show them in a dashboard.
@@ -78,6 +86,8 @@ The actuator is accessible via the following link:
 * http://localhost:8080/monitoring/actuator
 
 The endpoints are only accessible via api gateway.
+
+
 
 ### Sickness Zus Microservice
 

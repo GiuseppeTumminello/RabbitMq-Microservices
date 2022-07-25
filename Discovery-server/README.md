@@ -10,6 +10,14 @@ The discovery server expose also the actuator, can be accessed in the following 
 
 * http://localhost:8761/actuator
 
+### Rabbit MQ
+
+The project is built asynchronously using Rabbit MQ, click the following link to access to the dashboard:
+
+* http://192.168.99.105:15672/
+
+Replace "192.168.99.105" with your docker ip machine.
+
 
 
 # Setup

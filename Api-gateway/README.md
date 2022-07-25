@@ -10,6 +10,14 @@ The actuator is accessible via the following link:
 
 * http://localhost:8080/actuator
 
+### Rabbit MQ
+
+The project is built asynchronously using Rabbit MQ, click the following link to access to the dashboard:
+
+* http://192.168.99.105:15672/
+
+Replace "192.168.99.105" with your docker ip machine.
+
 # Setup
 
 The project is strictly connected with its parent project "Spring-SalaryCalculator-Microservices",
