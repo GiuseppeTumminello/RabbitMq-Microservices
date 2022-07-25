@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public interface DataProducerRepository extends JpaRepository<MicroservicesData, Integer> {
+public interface MicroservicesDataRepository extends JpaRepository<MicroservicesData, Integer> {
 
     @Query(value = "select * from microservices_data where uuid=:uuid", nativeQuery = true)
     ArrayList<MicroservicesData> findDataByUuid(@Param("uuid") UUID uuid);

@@ -1,4 +1,4 @@
-package com.acoustic.SpringPolandSalaryCalculator.rabbitmqtestconfiguration;
+package com.acoustic.SpringPolandSalaryCalculator.controller;
 
 
 import org.junit.jupiter.params.ParameterizedTest;

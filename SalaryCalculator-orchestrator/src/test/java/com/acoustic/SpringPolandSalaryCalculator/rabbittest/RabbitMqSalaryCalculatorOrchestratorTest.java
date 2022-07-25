@@ -1,4 +1,4 @@
-package com.acoustic.SpringPolandSalaryCalculator.rabbitmqtestconfiguration;
+package com.acoustic.SpringPolandSalaryCalculator.rabbittest;
 
 import com.acoustic.SpringPolandSalaryCalculator.rabbitmqtestconfiguration.RabbitTestConfiguration;
 import com.acoustic.controller.SalaryCalculatorOrchestratorController;
